@@ -10,7 +10,7 @@ namespace MusicHouse.ViewModels
     public class AlbumSongsGroupViewModel
     {
         public Node<Group> Group { get; set; }
-        public Node<Album> Albums { get; set; }
+        public Node<Album> Album { get; set; }
 
         public IEnumerable<Song> Songs { get; set; }
     }
