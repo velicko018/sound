@@ -1,0 +1,126 @@
+﻿
+@{
+    ViewBag.Title = "Admin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>House of Music</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Admin Panel
+                    <small>@DateTime.Now</small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li>
+                       @Html.ActionLink("Home", "Index", "Home", new { }, new {})
+                    </li>
+                    <li class="active">@Html.ActionLink("Admin Panel", "Admin", "Home", new { enty = "" }, new { })</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="list-group">
+                    @Ajax.ActionLink("Artists","List","Artist",new {id = 1 }, new AjaxOptions
+                                        {
+                                            HttpMethod = "GET",
+                                            InsertionMode = InsertionMode.Replace,
+                                            UpdateTargetId = "asd"
+                                        }, new { @class= "list-group-item " })
+
+                    @Ajax.ActionLink("Groups", "List", "Group", new { id = 1 }, new AjaxOptions
+                                       {
+                                           HttpMethod = "GET",
+                                           InsertionMode = InsertionMode.Replace,
+                                           UpdateTargetId = "asd"
+                                       }, new { @class = "list-group-item " })
+                    @Ajax.ActionLink("Albums", "List", "Album", new { id = 1 }, new AjaxOptions
+                                   {
+                                       HttpMethod = "GET",
+                                       InsertionMode = InsertionMode.Replace,
+                                       UpdateTargetId = "asd"
+                                   }, new { @class = "list-group-item " })
+                   @Ajax.ActionLink("Songs", "List", "Song", new { id = 1 }, new AjaxOptions
+                                       {
+                                           HttpMethod = "GET",
+                                           InsertionMode = InsertionMode.Replace,
+                                           UpdateTargetId = "asd"
+                                       }, new { @class = "list-group-item " })
+                    
+                    @Ajax.ActionLink("Awards", "List", "Award", new { id = 1 }, new AjaxOptions
+                                       {
+                                           HttpMethod = "GET",
+                                           InsertionMode = InsertionMode.Replace,
+                                           UpdateTargetId = "asd"
+                                       }, new { @class = "list-group-item " })
+                    @Ajax.ActionLink("Genres", "List", "Genre", new { id = 1 }, new AjaxOptions
+                                        {
+                                            HttpMethod = "GET",
+                                            InsertionMode = InsertionMode.Replace,
+                                            UpdateTargetId = "asd"
+                                        }, new { @class = "list-group-item " })
+                    @Ajax.ActionLink("Instruments", "List", "Instrument", new { id = 1 }, new AjaxOptions
+                                   {
+                                       HttpMethod = "GET",
+                                       InsertionMode = InsertionMode.Replace,
+                                       UpdateTargetId = "asd"
+                                   }, new { @class = "list-group-item " })
+                </div>
+            </div>
+
+            <div class="col-md-9">
+                <div id="asd">
+                   @if(Session["entity"]!=null && (string)Session["entity"] != "")
+                   {
+                       string action = (string)Session["entity"];
+                       Html.RenderAction("List", action);
+                   }
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+@section scripts 
+    {
+<script type="text/javascript">
+
+$(document).ajaxStart(function () {
+    $('#bzd').show();
+    $('#asd').empty();
+});
+$(document).ajaxStop(function () {
+    $('#bzd').hide();
+});
+
+$(document).ready(function () {
+    $('body').append('<div id="bzd" style="display:none"><p><img src="../../Content/Images/Ajax/loader1.gif" alt="Loading..."/></p></div>');
+
+    $('#bzd').css({
+display: "none",
+margin: "0px",
+paddingLeft: '0px',
+paddingRight: "0px",
+paddingTop: "0px",
+paddingBottom: "0px",
+position: "absolute",
+left: "50%",
+top: "50%",
+width: "auto"
+});
+
+});
+
+</script>
+
+    }
+

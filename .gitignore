@@ -1,0 +1,6 @@
+/packages
+/.vs
+/MusicHouse/bin/
+/MusicHouse/obj
+/RedisDataLayer/bin
+/RedisDataLayer/obj

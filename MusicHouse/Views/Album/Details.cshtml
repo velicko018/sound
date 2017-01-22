@@ -1,0 +1,92 @@
+﻿@model MusicHouse.Models.Album
+
+<div>
+    <h4>Album</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AlbumName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AlbumName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberOfCopies)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberOfCopies)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Producer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Producer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Studio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Studio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RecordedFrom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecordedFrom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RecordedTo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecordedTo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Songs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Songs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Singles)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Singles)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Length)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Length)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Released)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Released)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {  id = Url.RequestContext.RouteData.Values["id"] }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

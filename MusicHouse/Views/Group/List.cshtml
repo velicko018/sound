@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Neo4jClient.Node<MusicHouse.Models.Group>>
+
+<p class="pull-left">
+    @Html.ActionLink("Add Group", "Create", new { id = 1 }, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Data.GroupName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data.NumberOfMembers)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data.Origin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data.Website)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data.Established)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data.YearOfDecay)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data.GroupName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data.NumberOfMembers)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data.Origin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data.Website)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data.Established)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data.YearOfDecay)
+        </td>
+        <td>
+            <a href="@Url.Action("Edit", "Group", new { id = item.Reference.Id })" class="">
+                <i class="glyphicon glyphicon-edit"></i>
+                <span>
+                    <strong>Edit</strong>
+                </span>
+            </a>
+            |
+            <a href="@Url.Action("Delete", "Group", new { id = item.Reference.Id })" class="">
+                <i class="glyphicon glyphicon-remove"></i>
+                <span>
+                    <strong>Delete</strong>
+                </span>
+            </a>
+            @*@Html.ActionLink("Edit", "Edit", new {  id=item.Reference.Id }) |*@
+            @*@Html.ActionLink("Details", "Details", new { id = item.Reference.Id }) |*@
+            @*@Html.ActionLink("Delete", "Delete", new { id = item.Reference.Id })*@
+        </td>
+    </tr>
+}
+
+</table>

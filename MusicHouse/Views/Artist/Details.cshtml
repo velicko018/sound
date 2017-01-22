@@ -1,0 +1,84 @@
+﻿@model Neo4jClient.Node<MusicHouse.Models.Artist>
+
+<div>
+    <h4>Artist</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Data.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data.MiddleName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data.MiddleName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data.ArtistName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data.ArtistName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data.BirthDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data.BirthDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data.Ancestry)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data.Ancestry)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data.DeathDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data.DeathDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data.Lifespan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data.Lifespan)
+        </dd>
+
+    </dl>
+</div>
+<p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Reference.Id }) |
+        @Html.ActionLink("Back to List", "Admin", "Home", new { enty = "Artist" }, new { })
+    </p>

@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Neo4jClient.Node<MusicHouse.Models.Instrument>>
+
+<p class="pull-left">
+    @Html.ActionLink("Add Instrument", "Create", new { id = 1 }, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Data.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data.ManufactureYear)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data.Category)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data.Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data.ManufactureYear)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data.Category)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data.Name)
+        </td>
+        <td>
+            <a href="@Url.Action("Edit", "Instrument", new { id = item.Reference.Id })" class="">
+                <i class="glyphicon glyphicon-edit"></i>
+                <span>
+                    <strong>Edit</strong>
+                </span>
+            </a>
+            |
+            <a href="@Url.Action("Delete", "Instrument", new { id = item.Reference.Id })" class="">
+                <i class="glyphicon glyphicon-remove"></i>
+                <span>
+                    <strong>Delete</strong>
+                </span>
+            </a>
+            @*@Html.ActionLink("Edit", "Edit", new { id = item.Reference.Id }) |*@
+            @*@Html.ActionLink("Details", "Details", new { id = item.Reference.Id }) |*@
+            @*@Html.ActionLink("Delete", "Delete", new { id = item.Reference.Id })*@
+        </td>
+    </tr>
+}
+
+</table>

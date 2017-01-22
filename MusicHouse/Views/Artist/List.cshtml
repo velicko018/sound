@@ -1,0 +1,88 @@
+﻿@model IEnumerable<Neo4jClient.Node<MusicHouse.Models.Artist>>
+
+<p class="pull-left">
+    @Html.ActionLink("Add Artist", "Create", new { id = 1 }, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Data.FullName)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Data.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data.MiddleName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data.LastName)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Data.ArtistName)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Data.BirthDate)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Data.Ancestry)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Data.DeathDate)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Data.Lifespan)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data.FullName)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Data.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data.MiddleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data.LastName)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Data.ArtistName)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Data.BirthDate)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Data.Ancestry)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Data.DeathDate)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Data.Lifespan)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit", "Artist", new { id = item.Reference.Id })" class="">
+                    <i class="glyphicon glyphicon-edit"></i>
+                    <span>
+                        <strong>Edit</strong>
+                    </span>
+                </a>
+                |
+                <a href="@Url.Action("Delete", "Artist", new { id = item.Reference.Id })" class="">
+                    <i class="glyphicon glyphicon-remove"></i>
+                    <span>
+                        <strong>Delete</strong>
+                    </span>
+                </a>
+                @*@Html.ActionLink("Edit", "Edit", new {  id = item.Reference.Id }) |*@
+                @*@Html.ActionLink("Details", "Details", new { id = item.Reference.Id }) |*@
+                @*@Html.ActionLink("Delete", "Delete", new { id = item.Reference.Id })*@
+            </td>
+        </tr>
+    }
+</table>
+

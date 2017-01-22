@@ -1,0 +1,59 @@
+﻿@using MusicHouse.Models
+@model IEnumerable<Neo4jClient.Node<MusicHouse.Models.Song>>
+
+<p class="pull-left">
+    @Html.ActionLink("Add Song", "Create", new { id = 1 }, new { @class = "btn btn-primary" })
+</p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Data.SongName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Data.Writer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Data.Length)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Data.Number)
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Data.SongName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Data.Writer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Data.Length)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Data.Number)
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", "Song", new { id = item.Reference.Id })" class="">
+                        <i class="glyphicon glyphicon-edit"></i>
+                        <span>
+                            <strong>Edit</strong>
+                        </span>
+                    </a>
+                    |
+                    <a href="@Url.Action("Delete", "Song", new { id = item.Reference.Id })" class="">
+                        <i class="glyphicon glyphicon-remove"></i>
+                        <span>
+                            <strong>Delete</strong>
+                        </span>
+                    </a>
+                    @*@Html.ActionLink("Edit", "Edit", new { id = item.Reference.Id }) |*@
+                    @*@Html.ActionLink("Details", "Details", new { id = item.Reference.Id }) |*@
+                    @*@Html.ActionLink("Delete", "Delete", new { id = item.Reference.Id })*@
+                </td>
+            </tr>
+        }
+
+    </table>

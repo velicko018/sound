@@ -1,0 +1,301 @@
+﻿@model MusicHouse.ViewModels.GroupAlbumViewModel
+
+<!-- SOUND THEME / AJAX CONTENT START -->
+<div id="content" class="site-content">
+    <!-- Content Event Single -->
+    <!-- SOUND THEME / HEADER AREA -->
+    <style type="text/css">
+        .soundtheme-head-wall {
+            background: url(http://pock.be/sound/wp-content/uploads/2015/10/Artist-Header.png) no-repeat center center;
+            background-color: #24252A;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://pock.be/sound/wp-content/uploads/2015/10/Artist-Header.png', sizingMethod='scale');
+            -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://pock.be/sound/wp-content/uploads/2015/10/Artist-Header.png', sizingMethod='scale')";
+        }
+    </style>
+
+    <div class="container-fluid soundtheme-header-back soundtheme-head-wall">
+        <div class="container">
+            <div class="row">
+                <!-- SOUND THEME / THUMB IMAGE -->
+                <div class="col-md-3">
+                    <div id="soundtheme-thumb-image" class="soundtheme-thumb-image">
+                        <div id="soundtheme-single-thumb" class="util-carousel sample-img">
+
+                            <!-- #THUMB IMAGE -->
+                            <div class="item">
+                                <div class="meida-holder">
+                                    <img width="450" height="450" src="http://pock.be/sound/wp-content/uploads/2015/10/20-450x450.jpg" class="attachment-soundtheme-thumb-medium size-soundtheme-thumb-medium wp-post-image" alt="" srcset="http://pock.be/sound/wp-content/uploads/2015/10/20-450x450.jpg 450w, http://pock.be/sound/wp-content/uploads/2015/10/20-150x150.jpg 150w, http://pock.be/sound/wp-content/uploads/2015/10/20-250x250.jpg 250w" sizes="(max-width: 450px) 100vw, 450px" />
+                                </div>
+                            </div>
+
+                            <!-- #GALLERY -->
+                            <div class="item">
+                                <div class="meida-holder">
+                                    <img src="http://pock.be/sound/wp-content/uploads/2015/10/7-450x450.jpg" alt="" />
+                                </div>
+                                <div class="hover-content">
+                                    <div class="overlay"></div>
+                                    <div class="link-container">
+                                        <a href="http://pock.be/sound/wp-content/uploads/2015/10/7-700x600.jpg" class="img-link" data-effect="mfp-3d-unfold"><i class="icon-search"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="meida-holder">
+                                    <img src="http://pock.be/sound/wp-content/uploads/2015/10/42-450x450.jpg" alt="" />
+                                </div>
+                                <div class="hover-content">
+                                    <div class="overlay"></div>
+                                    <div class="link-container">
+                                        <a href="http://pock.be/sound/wp-content/uploads/2015/10/42-700x600.jpg" class="img-link" data-effect="mfp-3d-unfold"><i class="icon-search"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="meida-holder">
+                                    <img src="http://pock.be/sound/wp-content/uploads/2015/10/36-450x450.jpg" alt="" />
+                                </div>
+                                <div class="hover-content">
+                                    <div class="overlay"></div>
+                                    <div class="link-container">
+                                        <a href="http://pock.be/sound/wp-content/uploads/2015/10/36-700x600.jpg" class="img-link" data-effect="mfp-3d-unfold"><i class="icon-search"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="meida-holder">
+                                    <img src="http://pock.be/sound/wp-content/uploads/2015/10/30-450x450.jpg" alt="" />
+                                </div>
+                                <div class="hover-content">
+                                    <div class="overlay"></div>
+                                    <div class="link-container">
+                                        <a href="http://pock.be/sound/wp-content/uploads/2015/10/30-700x600.jpg" class="img-link" data-effect="mfp-3d-unfold"><i class="icon-search"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="meida-holder">
+                                    <img src="http://pock.be/sound/wp-content/uploads/2015/10/31-450x450.jpg" alt="" />
+                                </div>
+                                <div class="hover-content">
+                                    <div class="overlay"></div>
+                                    <div class="link-container">
+                                        <a href="http://pock.be/sound/wp-content/uploads/2015/10/31-700x601.jpg" class="img-link" data-effect="mfp-3d-unfold"><i class="icon-search"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="meida-holder">
+                                    <img src="http://pock.be/sound/wp-content/uploads/2015/10/17-450x450.jpg" alt="" />
+                                </div>
+                                <div class="hover-content">
+                                    <div class="overlay"></div>
+                                    <div class="link-container">
+                                        <a href="http://pock.be/sound/wp-content/uploads/2015/10/17-700x700.jpg" class="img-link" data-effect="mfp-3d-unfold"><i class="icon-search"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="meida-holder">
+                                    <img src="http://pock.be/sound/wp-content/uploads/2015/10/15-450x450.jpg" alt="" />
+                                </div>
+                                <div class="hover-content">
+                                    <div class="overlay"></div>
+                                    <div class="link-container">
+                                        <a href="http://pock.be/sound/wp-content/uploads/2015/10/15-700x600.jpg" class="img-link" data-effect="mfp-3d-unfold"><i class="icon-search"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="meida-holder">
+                                    <img src="http://pock.be/sound/wp-content/uploads/2015/10/16-450x450.jpg" alt="" />
+                                </div>
+                                <div class="hover-content">
+                                    <div class="overlay"></div>
+                                    <div class="link-container">
+                                        <a href="http://pock.be/sound/wp-content/uploads/2015/10/16-700x700.jpg" class="img-link" data-effect="mfp-3d-unfold"><i class="icon-search"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SOUND THEME / TITLES -->
+                <div class="col-md-9">
+                    <div class="soundtheme-big-title">
+                        <h1>@Model.Group.Data.GroupName</h1>
+
+                        <h2>@Model.Group.Data.Origin</h2>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <!-- SOUND THEME / HEADER BOTTOM -->
+    <div class="container-fluid soundtheme-header-bottomback">
+        <div class="container">
+            <div class="row">
+
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <!-- SOUND THEME / RESPONSIVE SPACE -->
+    <div class="soundtheme-responsive-space hidden-md hidden-lg"></div>
+
+    <!-- SOUND THEME / JOBS -->
+    <div class="container-fluid soundtheme-white-backone">
+        <div class="container">
+            <div class="row">
+                <!-- SOUND THEME / LIST -->
+                <div class=" col-md-8 	">
+                    <div class="soundtheme-single-titles">
+                        <h1>Biography</h1>
+                    </div>
+
+                    <div class="soundtheme-bio-spaceone"></div>
+
+                    <!-- SOUND THEME / ALBUMS -->
+                    <div class="soundtheme-loop-list">
+                        <p>@Model.Group.Data.GroupName</p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <!-- SOUND THEME / INFO -->
+                <div class="col-md-4">
+
+                    <div class="soundtheme-single-titles">
+                        <h1>Group Info</h1>
+                    </div>
+
+                    <div class="soundtheme-single-mininfo">
+                        <ul>
+                            <!-- # ARTIST NAME -->
+                            <li>
+                                <i class="fa fa-male"></i> @Model.Group.Data.GroupName
+                            </li>
+                            <!-- # ALBUM DATE -->
+                            <li>
+                                <i class="fa fa-calendar-check-o"></i> Established: <span>@Model.Group.Data.Established.ToLongDateString()</span>
+                            </li>
+                            <!-- # OTHERS -->
+                            <li>
+                                <i class="fa fa-building"></i> Origin: <span>@Model.Group.Data.Origin</span>
+                            </li>
+                            <li>
+                                <i class="fa fa-microphone"></i> Members: <span>@Model.Group.Data.NumberOfMembers</span>
+                            </li>
+                            <li>
+                                <i class="fa fa-music"></i> Website: <span> <a href="@Model.Group.Data.Website">@Model.Group.Data.Website</a></span>
+                            </li>
+                            <li>
+                                <i class="fa fa-star"></i> Years Active: <span>@Model.Group.Data.Established.Year - @Model.Group.Data.YearOfDecay</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="clearfix"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="soundtheme-bio-spacetwo"></div>
+
+    <div class="clearfix"></div>
+
+    <!-- SOUND THEME / RELATED POSTS -->
+    <style type="text/css">
+        .soundtheme-related-wall {
+            background: url(http://pock.be/sound/wp-content/uploads/2015/10/Event-Related.png) no-repeat center center;
+            background-color: #24252A;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://pock.be/sound/wp-content/uploads/2015/10/Event-Related.png', sizingMethod='scale');
+            -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://pock.be/sound/wp-content/uploads/2015/10/Event-Related.png', sizingMethod='scale')";
+        }
+    </style>
+    <!-- SOUND THEME / RELATED POSTS -->
+    <div class="container-fluid soundtheme-darkback-one soundtheme-related-wall">
+        <div class="container">
+            <div class="row">
+                <div class="soundtheme-related-title">
+                    <h1>Albums</h1>
+
+                </div>
+                @foreach (var album in Model.Albums)
+                {
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="soundtheme-related-posts">
+                            <div class="soundtheme-single-gallery">
+                                <a href="@Url.Action("Details", "Album", new { id = album.Reference.Id })">
+                                    <img width="450" height="450" src="http://pock.be/sound/wp-content/uploads/2015/10/37-450x450.jpg" class="attachment-soundtheme-thumb-medium size-soundtheme-thumb-medium wp-post-image" alt="" srcset="http://pock.be/sound/wp-content/uploads/2015/10/37-450x450.jpg 450w, http://pock.be/sound/wp-content/uploads/2015/10/37-150x150.jpg 150w, http://pock.be/sound/wp-content/uploads/2015/10/37-250x250.jpg 250w" sizes="(max-width: 450px) 100vw, 450px" />
+                                    <div class="soundtheme-hover-play"><i class="fa fa-hand-peace-o"></i></div>
+                                </a>
+                                <div class="soundtheme-mod-detail  soundtheme-mod-detail-dark ">
+                                    <h1 class="text-center soundtheme-big-title">@album.Data.AlbumName</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                
+                
+
+                <div class="clearfix"></div>
+                <div class="soundtheme-related-space"></div>
+
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+
+
+
+    <div class="clearfix"></div>
+
+    <!-- SOUND THEME / SOCIAL ICONS -->
+    <div class="container-fluid soundtheme-darkback-two">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="soundtheme-logo-footer">
+                        <ul>
+                            <li>
+                                <a href=""><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li>
+                                <a href=""><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href=""><i class="fa fa-apple"></i></a>
+                            </li>
+                            <li>
+                                <a href=""><i class="fa fa-spotify"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+
+</div>
+<!-- SOUND THEME / AJAX CONTENT END -->

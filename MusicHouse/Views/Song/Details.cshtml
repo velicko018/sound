@@ -1,0 +1,44 @@
+﻿@model Neo4jClient.Node<MusicHouse.Models.Song>
+
+<div>
+    <h4>Song</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Data.SongName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data.SongName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data.Writer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data.Writer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data.Length)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data.Length)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data.Number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data.Number)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Reference.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

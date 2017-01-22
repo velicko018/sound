@@ -1,0 +1,108 @@
+﻿@model IEnumerable<Neo4jClient.Node<MusicHouse.Models.Album>>
+
+<p class="pull-left">
+    @Html.ActionLink("Add Album", "Create", new { id = 1 }, new { @class= "btn btn-primary" })
+</p>
+<table class="table col-md-9">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Data.AlbumName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data.NumberOfCopies)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data.Producer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data.Studio)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Data.RecordedFrom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data.RecordedTo)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Data.Songs)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data.Singles)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Data.Length)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data.Released)
+        </th>*@
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data.AlbumName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data.NumberOfCopies)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data.Producer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data.Studio)
+            </td>
+            @*<td>
+            @Html.DisplayFor(modelItem => item.Data.RecordedFrom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data.RecordedTo)
+        </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Data.Songs)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data.Singles)
+            </td>
+            @*<td>
+            @Html.DisplayFor(modelItem => item.Data.Length)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data.Released)
+        </td>*@
+            <td>
+                <a href="@Url.Action("Edit", "Album", new { id = item.Reference.Id })" class="">
+                    <i class="glyphicon glyphicon-edit"></i>
+                    <span>
+                        <strong>Edit</strong>
+                    </span>
+                </a>
+                |
+                <a href="@Url.Action("Delete", "Album", new { id = item.Reference.Id })" class="">
+                    <i class="glyphicon glyphicon-remove"></i>
+                    <span>
+                        <strong>Delete</strong>
+                    </span>
+                </a>
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.Reference.Id }) |*@
+                @*@Html.ActionLink("Details", "Details", new { id = item.Reference.Id }) |*@
+                @*@Html.ActionLink("Delete", "Delete", new { id = item.Reference.Id }) |*@
+                @*@Ajax.ActionLink("Songs", "Songs", new { id = item.Reference.Id }, new AjaxOptions
+                {
+                    HttpMethod = "GET",
+                    InsertionMode = InsertionMode.Replace,
+                    UpdateTargetId = "asd"
+                })*@
+                
+            </td>
+
+        </tr>
+    }
+</table>
+<div id="asd"></div>
+
+
+
+
+
+

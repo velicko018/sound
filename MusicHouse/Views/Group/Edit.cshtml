@@ -1,0 +1,149 @@
+﻿@model MusicHouse.Models.Group
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
+@{
+    List<SelectListItem> ArtistItems = new List<SelectListItem>();
+    List<SelectListItem> AwardItems = new List<SelectListItem>();
+    List<SelectListItem> AlbumItems = new List<SelectListItem>();
+    List<SelectListItem> GenreItems = new List<SelectListItem>();
+
+    if (Session["Artist"] != null)
+    {
+        IEnumerable<Neo4jClient.Node<MusicHouse.Models.Artist>> artists = Session["Artist"] as IEnumerable<Neo4jClient.Node<MusicHouse.Models.Artist>>;
+        foreach (var item in artists)
+        {
+            ArtistItems.Add(new SelectListItem { Text = item.Data.FullName, Value = item.Reference.Id.ToString() });
+        }
+    }
+    if (Session["Award"] != null)
+    {
+        IEnumerable<Neo4jClient.Node<MusicHouse.Models.Award>> awards = Session["Award"] as IEnumerable<Neo4jClient.Node<MusicHouse.Models.Award>>;
+        foreach (var item in awards)
+        {
+            AwardItems.Add(new SelectListItem { Text = item.Data.Name, Value = item.Reference.Id.ToString() });
+        }
+    }
+    if (Session["Album"] != null)
+    {
+        IEnumerable<Neo4jClient.Node<MusicHouse.Models.Album>> albums = Session["Album"] as IEnumerable<Neo4jClient.Node<MusicHouse.Models.Album>>;
+        foreach (var item in albums)
+        {
+            AlbumItems.Add(new SelectListItem { Text = item.Data.AlbumName, Value = item.Reference.Id.ToString() });
+        }
+    }
+    if (Session["Genre"] != null)
+    {
+        IEnumerable<Neo4jClient.Node<MusicHouse.Models.Genre>> genres = Session["Genre"] as IEnumerable<Neo4jClient.Node<MusicHouse.Models.Genre>>;
+        foreach (var item in genres)
+        {
+            GenreItems.Add(new SelectListItem { Text = item.Data.Name, Value = item.Reference.Id.ToString() });
+        }
+    }
+
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Group</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.GroupName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.GroupName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.GroupName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NumberOfMembers, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NumberOfMembers, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NumberOfMembers, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Origin, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Origin, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Origin, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Website, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Website, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Website, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Established, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Established, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Established, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.YearOfDecay, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.YearOfDecay, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.YearOfDecay, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+        @if (AlbumItems.Count != 0)
+        {
+            <div class="form-group">
+                <label class="control-label col-md-2">Add Album</label>
+                <div class="col-md-10">
+                    @Html.DropDownList("Albums", AlbumItems, new { @class = "form-control" })
+                </div>
+            </div>
+        }
+        @if (ArtistItems.Count != 0)
+        {
+            <div class="form-group">
+                <label class="control-label col-md-2">Add Artist</label>
+                <div class="col-md-10">
+                    @Html.DropDownList("Artists", ArtistItems, new { @class = "form-control" })
+                </div>
+            </div>
+        }
+        @if (AwardItems.Count != 0)
+        {
+            <div class="form-group">
+                <label class="control-label col-md-2">Add Award</label>
+                <div class="col-md-10">
+                    @Html.DropDownList("Awards", AwardItems, new { @class = "form-control" })
+                </div>
+            </div>
+        }
+        @if (GenreItems.Count != 0)
+        {
+            <div class="form-group">
+                <label class="control-label col-md-2">Add Genre</label>
+                <div class="col-md-10">
+                    @Html.DropDownList("Genres", GenreItems, new { @class = "form-control" })
+                </div>
+            </div>
+        }
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Admin", "Home", new { enty = "Group" }, new { @class = "btn btn-primary" })
+</div>

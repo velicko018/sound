@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicHouse", "MusicHouse\MusicHouse.csproj", "{D2201DAE-C20D-495A-8C6B-068130E95B28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisDataLayer", "RedisDataLayer\RedisDataLayer.csproj", "{6954149D-E2DF-4ACC-891B-6D18F9C4F48D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D2201DAE-C20D-495A-8C6B-068130E95B28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2201DAE-C20D-495A-8C6B-068130E95B28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2201DAE-C20D-495A-8C6B-068130E95B28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2201DAE-C20D-495A-8C6B-068130E95B28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6954149D-E2DF-4ACC-891B-6D18F9C4F48D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6954149D-E2DF-4ACC-891B-6D18F9C4F48D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6954149D-E2DF-4ACC-891B-6D18F9C4F48D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6954149D-E2DF-4ACC-891B-6D18F9C4F48D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
