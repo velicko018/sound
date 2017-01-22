@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using MusicHouse.App_Start;
 using MusicHouse.Models;
+using MusicHouse.ViewModels;
 using Neo4jClient;
 using Newtonsoft.Json;
 
@@ -60,11 +61,32 @@ namespace MusicHouse.Controllers
                 var album = WebApiConfig.GraphClient.Cypher
                     .Match("(a:Album)")
                     .Where($"ID(a) = {id}")
-                    .Return(a => a.As<Album>())
+                    .Return(a => a.As<Node<Album>>())
                     .Limit(1)
                     .Results;
 
-                return View("Details", album.First());
+                var songs = WebApiConfig.GraphClient.Cypher
+                    .Match("(s:Song), (b:Album)")
+                    .Where("(b)-[:HAS_SONG]->(s) AND ID(b) = {id}")
+                    .WithParam("id", id)
+                    .Return(s => s.As<Song>())
+                    .Results;
+
+                var group = WebApiConfig.GraphClient.Cypher
+                    .Match("(a:Album), (g:Group)")
+                    .Where("(g)-[:HAVE_ALBUM]->(a) AND ID(a) = {id}")
+                    .WithParam("id", id)
+                    .Return(g => g.As<Node<Group>>())
+                    .Results;
+
+                AlbumSongsGroupViewModel albumSongsGroupVM = new AlbumSongsGroupViewModel
+                {
+                    Album = album.First(),
+                    Group = group.First(),
+                    Songs = songs
+                };
+
+                return View("Details", albumSongsGroupVM);
 
             }
             catch(Exception e)

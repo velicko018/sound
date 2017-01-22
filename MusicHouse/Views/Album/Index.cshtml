@@ -1,4 +1,5 @@
-﻿<!-- SOUND THEME / AJAX CONTENT START -->
+﻿@model IEnumerable<Neo4jClient.Node<MusicHouse.Models.Album>>
+<!-- SOUND THEME / AJAX CONTENT START -->
 <div id="content" class="site-content">
     <!-- SOUND THEME / MODULE SLIDER -->
     <!-- Module Slider -->
@@ -247,73 +248,51 @@
     <!-- SOUND THEME / GALLERY -->
     <!-- SOUND THEME / FEATURED SLIDER -->
 
-    <div class="container-fluid soundtheme-mod-featured soundtheme-container soundtheme-mod-dark ">
+    <div class="container-fluid soundtheme-mod-galleries soundtheme-container soundtheme-mod-light ">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="soundtheme-mod-title  soundtheme-mod-title-dark ">
-                        <h1>Featured Best Albums </h1>
-                        <h2>New Album List</h2>
+                    <div class="soundtheme-mod-title ">
+                        <h1>Albums</h1>
                     </div>
                 </div>
 
                 <div class="clearfix"></div>
 
-                <div id="soundtheme-module-featured" class="util-carousel team-showcase soundtheme-mod-featcon">
-                    <div class="item">
-                        <div class="meida-holder soundtheme-mod-thumb">
-                            <div class="soundtheme-single-gallery">
-                                <a href="http://pock.be/sound/past-time-paradise/">
-                                    <img width="450" height="450" src="http://pock.be/sound/wp-content/uploads/2015/10/27-450x450.jpg" class="attachment-soundtheme-thumb-medium size-soundtheme-thumb-medium wp-post-image" alt="" srcset="http://pock.be/sound/wp-content/uploads/2015/10/27-450x450.jpg 450w, http://pock.be/sound/wp-content/uploads/2015/10/27-150x150.jpg 150w, http://pock.be/sound/wp-content/uploads/2015/10/27-250x250.jpg 250w" sizes="(max-width: 450px) 100vw, 450px" />											<div class="soundtheme-hover-play"><i class="fa fa-hand-peace-o"></i></div>
-                                </a>
+                <div id="soundtheme-module-gallery" class="util-theme-default util-carousel team-showcase soundtheme-mod-featcon" style="display: block;">
+                    <div class="util-wrapper-holder" style="-moz-user-select: none;">
+                        @foreach (var album in Model)
+                        {
+                            <div class="util-wrapper" style="width: 4680px; display: block;">
+                                <div class="util-item" style="width: 292.5px; margin-left: 0px; margin-right: 0px;">
+                                    <div class="item">
+                                        <div class="meida-holder soundtheme-mod-thumb">
+                                            <div class="soundtheme-single-gallery">
+                                                <a href="http://pock.be/sound/samuel-smith/">
+                                                    <img src="http://pock.be/sound/wp-content/uploads/2015/10/37-450x450.jpg" class="attachment-soundtheme-thumb-medium size-soundtheme-thumb-medium wp-post-image" alt="" srcset="http://pock.be/sound/wp-content/uploads/2015/10/37-450x450.jpg 450w, http://pock.be/sound/wp-content/uploads/2015/10/37-150x150.jpg 150w, http://pock.be/sound/wp-content/uploads/2015/10/37-250x250.jpg 250w" sizes="(max-width: 450px) 100vw, 450px" width="450" height="450">
+                                                    <div class="soundtheme-hover-play">
+                                                        <i class="fa fa-hand-peace-o"></i>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="soundtheme-mod-detail ">
+                                            <h1>
+                                                @Html.ActionLink(@album.Data.AlbumName, "Details", new {id = album.Reference.Id})
+                                            </h1>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
-                        </div>
 
-                        <div class="soundtheme-mod-detail  soundtheme-mod-detail-dark ">
-                            <h1><a href="http://pock.be/sound/past-time-paradise/">Micheal Smith</a></h1>
-                            <h2>
-                                "Past Time Paradise"
-                            </h2>
-                        </div>
+                        }
                     </div>
-                    <div class="item">
-                        <div class="meida-holder soundtheme-mod-thumb">
-                            <div class="soundtheme-single-gallery">
-                                <a href="http://pock.be/sound/its-perfect-day/">
-                                    <img width="450" height="450" src="http://pock.be/sound/wp-content/uploads/2015/10/42-450x450.jpg" class="attachment-soundtheme-thumb-medium size-soundtheme-thumb-medium wp-post-image" alt="" srcset="http://pock.be/sound/wp-content/uploads/2015/10/42-450x450.jpg 450w, http://pock.be/sound/wp-content/uploads/2015/10/42-150x150.jpg 150w, http://pock.be/sound/wp-content/uploads/2015/10/42-250x250.jpg 250w" sizes="(max-width: 450px) 100vw, 450px" />											<div class="soundtheme-hover-play"><i class="fa fa-hand-peace-o"></i></div>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="soundtheme-mod-detail  soundtheme-mod-detail-dark ">
-                            <h1><a href="http://pock.be/sound/its-perfect-day/">Leonardo Doe</a></h1>
-                            <h2>
-                                "It&#039;s Perfect Day"
-                            </h2>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="meida-holder soundtheme-mod-thumb">
-                            <div class="soundtheme-single-gallery">
-                                <a href="http://pock.be/sound/sweat-dreams/">
-                                    <img width="450" height="450" src="http://pock.be/sound/wp-content/uploads/2015/10/photo-1432563491239-ba8bb919518e-450x450.jpg" class="attachment-soundtheme-thumb-medium size-soundtheme-thumb-medium wp-post-image" alt="" srcset="http://pock.be/sound/wp-content/uploads/2015/10/photo-1432563491239-ba8bb919518e-450x450.jpg 450w, http://pock.be/sound/wp-content/uploads/2015/10/photo-1432563491239-ba8bb919518e-150x150.jpg 150w, http://pock.be/sound/wp-content/uploads/2015/10/photo-1432563491239-ba8bb919518e-250x250.jpg 250w" sizes="(max-width: 450px) 100vw, 450px" />											<div class="soundtheme-hover-play"><i class="fa fa-hand-peace-o"></i></div>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="soundtheme-mod-detail  soundtheme-mod-detail-dark ">
-                            <h1><a href="http://pock.be/sound/sweat-dreams/">Marie Strazborg</a></h1>
-                            <h2>
-                                "Sweat Dreams"
-                            </h2>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>
     </div>
-
     <!-- SOUND THEME / EVENT LIST -->
 
 
