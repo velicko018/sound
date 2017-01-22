@@ -9,6 +9,7 @@ using MusicHouse.Models;
 using MusicHouse.ViewModels;
 using Neo4jClient;
 using Newtonsoft.Json;
+using RedisDataLayer;
 
 namespace MusicHouse.Controllers
 {
@@ -302,6 +303,17 @@ namespace MusicHouse.Controllers
         public ActionResult DeletePost(int id)
         {
             return View("Error");
+        }
+
+        public void WriteArtistToRedis(string FirstName, string MiddleName, string LastName, string ArtistName, DateTime birth, string ances, DateTime dth)
+        {
+            if (Request.IsAjaxRequest())
+            {
+                LeaderBoard l = new LeaderBoard();
+                l.SetArtistClicks(FirstName, MiddleName, LastName, ArtistName, birth, ances,dth);
+                //var p= l.GetSongClicks(songName+"_"+writer);
+            }
+
         }
     }
 }

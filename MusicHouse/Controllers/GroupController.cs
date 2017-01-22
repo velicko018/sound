@@ -8,6 +8,7 @@ using MusicHouse.App_Start;
 using MusicHouse.Models;
 using MusicHouse.ViewModels;
 using Neo4jClient;
+using RedisDataLayer;
 
 namespace MusicHouse.Controllers
 {
@@ -298,6 +299,17 @@ namespace MusicHouse.Controllers
         public ActionResult DeletePost(int id)
         {
             return View("Error");
+        }
+
+        public void WriteGroupToRedis(string groupName, string origin, string website, byte numberOfMembers, DateTime est, DateTime yod)
+        {
+            if (Request.IsAjaxRequest())
+            {
+                LeaderBoard l = new LeaderBoard();
+                l.SetGroupClicks(groupName, origin, website, numberOfMembers,est,yod);
+                //var p= l.GetSongClicks(songName+"_"+writer);
+            }
+
         }
     }
 }

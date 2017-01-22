@@ -7,6 +7,7 @@ using MusicHouse.App_Start;
 using MusicHouse.Models;
 using Neo4jClient;
 using Microsoft.Ajax.Utilities;
+using RedisDataLayer;
 
 namespace MusicHouse.Controllers
 {
@@ -194,9 +195,20 @@ namespace MusicHouse.Controllers
         // POST: Song/Delete/5
         [HttpPost]
         [ActionName("Delete")]
-        public ActionResult DeletePost(int id)
+        public ActionResult DeletePost()
         {
             return View("Error");
+        }
+
+        public void WriteSongToRedis(string songName, string writer, string length, byte number)
+        {
+            if(Request.IsAjaxRequest())
+            {
+                LeaderBoard l = new LeaderBoard();
+                l.SetSongClicks(songName, writer, length, number);
+              //var p= l.GetSongClicks(songName+"_"+writer);
+            }
+
         }
     }
 }

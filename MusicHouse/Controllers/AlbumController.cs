@@ -8,6 +8,7 @@ using MusicHouse.Models;
 using MusicHouse.ViewModels;
 using Neo4jClient;
 using Newtonsoft.Json;
+using RedisDataLayer;
 
 namespace MusicHouse.Controllers
 {
@@ -259,6 +260,17 @@ namespace MusicHouse.Controllers
                 .Results;
 
             return PartialView("~/Views/Song/List.cshtml", k);
+        }
+
+        public void WriteArtistToRedis(string AlbumName, long NumberOfCopies, string Producer, string Studio, DateTime recfrom, DateTime recto, byte song, byte singl, string lng, DateTime rel)
+        {
+            if (Request.IsAjaxRequest())
+            {
+                LeaderBoard l = new LeaderBoard();
+                l.SetAlbumClicks(AlbumName, NumberOfCopies, Producer, Studio, recfrom, recto, song,singl,lng,rel);
+                //var p= l.GetSongClicks(songName+"_"+writer);
+            }
+
         }
     }
 }

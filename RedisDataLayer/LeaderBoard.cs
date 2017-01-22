@@ -15,6 +15,7 @@ namespace RedisDataLayer
         public List<Groups> Groups;
         public List<Albums> Albums;
         public List<Artists> Artists;
+        
 
         readonly RedisClient redis = new RedisClient(Config.SingleHost);
 
@@ -70,30 +71,31 @@ namespace RedisDataLayer
 
             return redis.Incr("clicks" + id +"songs");
         }
-        public long SetArtistClicks(string FirstName, string MiddleName, string LastName, string ArtistName)
+        public long SetArtistClicks(string FirstName, string MiddleName, string LastName, string ArtistName, DateTime birth, string ances, DateTime dth)
         {
             string id = ArtistName;
-            Artists artist = new Artists(FirstName, MiddleName, LastName, ArtistName);
+            Artists artist = new Artists(FirstName, MiddleName, LastName, ArtistName,birth,ances,dth);
 
             redis.PushItemToList("artists" + id, artist.ToJsonString());
             Artists.Add(artist);
 
             return redis.Incr("clicks" + id + "artists");
         }
-        public long SetGroupClicks(string GroupName, string Origin, string Website, byte NumberOfMembers)
+        public long SetGroupClicks(string GroupName, string Origin, string Website, byte NumberOfMembers, DateTime establ, DateTime decay)
         {
             string id = GroupName;
-            Groups group = new Groups(GroupName, Origin, Website, NumberOfMembers);
+            Groups group = new Groups(GroupName, Origin, Website, NumberOfMembers,establ,decay);
 
             Groups.Add(group);
             redis.PushItemToList("groups" + id, group.ToJsonString());
 
             return redis.Incr("clicks" + id + "groups");
         }
-        public long SetAlbumClicks(string AlbumName, long NumberOfCopies, string Producer, string Studio)
+        
+        public long SetAlbumClicks(string AlbumName, long NumberOfCopies, string Producer, string Studio, DateTime recfrom, DateTime recto, byte song, byte singl, string lng, DateTime rel)
         {
             string id = AlbumName +"_"+ Producer;
-            Albums album = new Albums(AlbumName, NumberOfCopies, Producer, Studio);
+            Albums album = new Albums(AlbumName, NumberOfCopies, Producer, Studio,recfrom,recto,song,singl,lng,rel);
 
             Albums.Add(album);
             redis.PushItemToList("albums" + id, album.ToJsonString());

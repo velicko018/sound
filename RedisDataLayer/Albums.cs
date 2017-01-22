@@ -30,12 +30,18 @@ namespace RedisDataLayer
 
         public DateTime Released { get; set; }
 
-        public Albums(string AlbumName, long NumberOfCopies, string Producer, string Studio)
+        public Albums(string AlbumName, long NumberOfCopies, string Producer, string Studio,DateTime recfrom,DateTime recto,byte song, byte singl, string lng, DateTime rel)
         {
             this.AlbumName = AlbumName;
             this.NumberOfCopies = NumberOfCopies;
             this.Producer = Producer;
             this.Studio = Studio;
+            this.RecordedFrom = recfrom;
+            this.RecordedTo = recto;
+            this.Songs = song;
+            this.Singles = singl;
+            this.Length = lng;
+            this.Released = rel;
         }
 
         public Albums()
