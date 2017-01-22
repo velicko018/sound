@@ -32,16 +32,16 @@
                         <p>The page you're looking for could not be found, or there was an error processing the request. Here are some helpful links to get you back on track:</p>
                         <ul>
                             <li>
-                                <a href="index.html">Home</a>
+                                <a href="index.html">@Html.ActionLink("Home", "Index", "Home", new { }, new { })</a>
                             </li>
                             <li>
-                                <a href="about.html">About</a>
+                                <a href="about.html">@Html.ActionLink("Artists", "Index", "Artist", new { }, new { })</a>
                             </li>
                             <li>
-                                <a href="services.html">Services</a>
+                                <a href="services.html">@Html.ActionLink("Albums", "Index", "Album", new { }, new { })</a>
                             </li>
                             <li>
-                                <a href="contact.html">Contact</a>
+                                <a href="contact.html">@Html.ActionLink("Groups", "Index", "Group", new { }, new { })</a>
                             </li>
                            
                         </ul>
