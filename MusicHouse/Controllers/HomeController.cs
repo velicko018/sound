@@ -7,6 +7,7 @@ using System.Web;
 using RedisDataLayer;
 using Microsoft.Ajax.Utilities;
 using MusicHouse.Models;
+using MusicHouse.ViewModels;
 using Neo4jClient;
 
 namespace MusicHouse.Controllersss
@@ -15,33 +16,107 @@ namespace MusicHouse.Controllersss
     {
         public ActionResult Index()
         {
-            if (!System.Web.HttpContext.Current.Application.AllKeys.Contains("Exception"))
+            try
             {
-                if(Session["admin"]==null)
+                if (!System.Web.HttpContext.Current.Application.AllKeys.Contains("Exception"))
                 {
-                    Session["admin"] = "false";
+                    if (Session["admin"] == null)
+                    {
+                        Session["admin"] = "false";
+
+                    }
+
+                    LeaderBoard l = new LeaderBoard();
+                    var topsongs = l.GetTopSongs(20);
+                    var reacentsongs = l.GetRecentSongs(20).DistinctBy(x => x.SongName).ToList();
+                    List<Song> SongTopList = new List<Song>();
+                    List<Song> SongReacentList = new List<Song>();
+                    foreach (var item in topsongs)
+                    {
+                        Song song = new Song(item.SongName, item.Writer, item.Length, item.Number);
+                        SongTopList.Add(song);
+                    }
+                    foreach (var item in reacentsongs)
+                    {
+                        Song song = new Song(item.SongName, item.Writer, item.Length, item.Number);
+                        SongReacentList.Add(song);
+                    }
+
+                    var topArtist = l.GetTopArtists(3);
+                    List<Artist> artistTopList = new List<Artist>();
+
+                    foreach (var item in topArtist)
+                    {
+                        Artist artist = new Artist(
+                            item.ArtistName,
+                            item.FirstName,
+                            item.LastName,
+                            item.MiddleName,
+                            item.BirthDate,
+                            item.DeathDate.GetValueOrDefault(),
+                            item.Ancestry,
+                            item.Biography);
+                        artistTopList.Add(artist);
+                    }
+
+                    var topAlbums = l.GetTopAlbums(3);
+                    List<Album> albumTopList = new List<Album>();
+
+                    foreach (var item in topAlbums)
+                    {
+                        Album album = new Album(
+                            item.AlbumName,
+                            item.Producer,
+                            item.Studio,
+                            item.NumberOfCopies,
+                            item.Songs,
+                            item.Singles,
+                            item.RecordedFrom,
+                            item.RecordedTo,
+                            item.Length,
+                            item.Released);
+                        albumTopList.Add(album);
+                    }
+
+                    var topGroups = l.GetTopGroups(3);
+                    List<Group> groupTopList = new List<Group>();
+
+                    foreach (var item in topGroups)
+                    {
+                        Group group = new Group(
+                            item.GroupName,
+                            item.NumberOfMembers,
+                            item.Origin,
+                            item.Website,
+                            item.Established,
+                            item.YearOfDecay.GetValueOrDefault());
+                        groupTopList.Add(group);
+                    }
+
+                    HomeViewModel homeViewModel = new HomeViewModel
+                    {
+                        Albums = (albumTopList.Count != 0) ? albumTopList : new List<Album>(),
+                        Artists = (artistTopList.Count != 0) ? artistTopList : new List<Artist>(),
+                        Groups = (groupTopList.Count != 0) ? groupTopList : new List<Group>(),
+                        Songs = (SongTopList.Count != 0) ? SongTopList : new List<Song>(),
+                    };
+
+                    return View(homeViewModel);
+
                 }
-                return View();
+                return View("Error");
+
 
             }
-
-            LeaderBoard l = new LeaderBoard();
-            var topsongs = l.GetTopSongs(20);
-            var reacentsongs = l.GetRecentSongs(20).DistinctBy(x => x.SongName).ToList();
-            IList<Song> SongTopList = new List<Song>();
-            IList<Song> SongReacentList = new List<Song>();
-            foreach (var item in topsongs)
+            catch (Exception e)
             {
-             Song song = new Song(item.SongName,item.Writer,item.Length,item.Number);
-                SongTopList.Add(song);
+                return View("Error");
             }
-            foreach (var item in reacentsongs)
-            {
-                Song song = new Song(item.SongName, item.Writer, item.Length, item.Number);
-                SongReacentList.Add(song);
-            }
+            
 
-            return View("Error");
+
+
+           
         }
 
         public ActionResult About()
