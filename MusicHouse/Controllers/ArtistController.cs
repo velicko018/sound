@@ -118,7 +118,9 @@ namespace MusicHouse.Controllers
                     .Return(b => b.As<Node<Album>>())
                     .Results;
 
-
+                var artToRedis = artist.First().Data;
+                LeaderBoard l = new LeaderBoard();
+                l.SetArtistClicks(artToRedis.FirstName, artToRedis.MiddleName, artToRedis.LastName, artToRedis.ArtistName, artToRedis.BirthDate, artToRedis.Ancestry, artToRedis.DeathDate, artToRedis.Biography);
 
                 ArtistAlbumsViewModel groupAlbumVM = new ArtistAlbumsViewModel
                 {
