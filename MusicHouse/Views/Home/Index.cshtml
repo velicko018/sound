@@ -9,15 +9,15 @@
     <!-- Module Slider -->
 
     <div id="component" class="component component-fullwidth fxStickIt">
-        <ul class="itemwrap">
+        <ul id="listanbp" class="itemwrap">
             <li class="current" style="background-image: url(http://pock.be/sound/wp-content/uploads/2015/10/Main-Slide1.png);">
                 <div class="soundtheme-slidertitle">
                     <h1>Creative Awesome Sound</h1>
                     <h2>Music Band Magazine</h2>
                     <div class="soundtheme-slider-button">
-                        <a href="http://www.pock.site/sound/artist-page-four-grid/" class="btn btn-lg btn-success">
-                            Discovery Artists
-                        </a>
+                        <div class="soundtheme-slider-button">
+                            @Html.ActionLink("Discovery Artists", "Index", "Artist", null, new { @class = "btn btn-lg btn-success" })
+                        </div>
                     </div>
                 </div>
                 <img src="http://pock.be/sound/wp-content/uploads/2015/10/Main-Slide1.png" alt="Slider">
@@ -27,9 +27,10 @@
                     <h1>Creative Awesome Artists</h1>
                     <h2>Music Band Magazine</h2>
                     <div class="soundtheme-slider-button">
-                        <a href="http://www.pock.site/sound/music-page-four-grid/" class="btn btn-lg btn-success">
-                            Discovery Albums
-                        </a>
+                       
+                        @Html.ActionLink("Discovery Albums", "Index", "Album", null, new { @class = "btn btn-lg btn-success" })
+
+
                     </div>
                 </div>
                 <img src="http://pock.be/sound/wp-content/uploads/2015/10/Music-Sliders.png" alt="Slider">
@@ -39,41 +40,20 @@
                     <h1>Creative Awesome Videos</h1>
                     <h2>Video Magazine</h2>
                     <div class="soundtheme-slider-button">
-                        <a href="http://www.pock.site/sound/video-page-four-grid/" class="btn btn-lg btn-success">
-                            Discovery Videos
-                        </a>
+                            @Html.ActionLink("Discovery Groups", "Index", "Group", null, new { @class = "btn btn-lg btn-success" })
+       
                     </div>
                 </div>
                 <img src="http://pock.be/sound/wp-content/uploads/2015/10/Video-Slide.png" alt="Slider">
             </li>
-            <li style="background-image: url(http://pock.be/sound/wp-content/uploads/2015/10/Gallery-Slide.png);">
-                <div class="soundtheme-slidertitle">
-                    <h1>Creative Awesome Gallery</h1>
-                    <h2>Art Magazine</h2>
-                    <div class="soundtheme-slider-button">
-                        <a href="http://www.pock.site/sound/gallery-page-four-grid/" class="btn btn-lg btn-success">
-                            Discovery Galleries
-                        </a>
-                    </div>
-                </div>
-                <img src="http://pock.be/sound/wp-content/uploads/2015/10/Gallery-Slide.png" alt="Slider">
-            </li>
-            <li style="background-image: url(http://pock.be/sound/wp-content/uploads/2015/10/Event-Slider-One.png);">
-                <div class="soundtheme-slidertitle">
-                    <h1>Creative Awesome Events</h1>
-                    <h2>Event Magazine</h2>
-                    <div class="soundtheme-slider-button">
-                        <a href="http://www.pock.site/sound/event-page-four-grid/" class="btn btn-lg btn-success">
-                            Discovery Events
-                        </a>
-                    </div>
-                </div>
-                <img src="http://pock.be/sound/wp-content/uploads/2015/10/Event-Slider-One.png" alt="Slider">
-            </li>
         </ul>
         <nav>
-            <a class="prev" href="#"><i class="fa fa-chevron-left"></i></a>
-            <a class="next" href="#"><i class="fa fa-chevron-right"></i></a>
+            <a id="prevnbp" class="prev">
+                <i class="fa fa-chevron-left"></i>
+            </a>
+            <a id="nextnbp" class="next">
+                <i class="fa fa-chevron-right"></i>
+            </a>
         </nav>
     </div>
     <div class="clearfix"></div>
@@ -840,294 +820,7 @@
         </div>
     </div>
 
-    <!-- SOUND THEME / VIDEO -->
-    <!-- SOUND THEME / FEATURED SLIDER -->
 
-    <div class="container-fluid soundtheme-mod-hotvideo soundtheme-container soundtheme-mod-dark ">
-        <div class="container">
-            <div class="col-md-12">
-                <div class="soundtheme-mod-title  soundtheme-mod-title-dark ">
-                    <h1>New Video Release</h1>
-                    <h2>Watch Now</h2>
-                </div>
-            </div>
-
-            <div class="clearfix"></div>
-
-            <div class="row soundtheme-mod-videolist" style="margin-top:60px;">
-
-                <div class="col-md-6">
-                    <div class="soundtheme-single-gallery">
-                        <a class="soundtheme-video-popup" href="#soundtheme-video144">
-                            <img src="http://pock.be/sound/wp-content/uploads/2015/10/photo-1429305254053-2a1bfe816f36-700x450.jpg" class="attachment-soundtheme-thumb-formal size-soundtheme-thumb-formal wp-post-image" alt="" width="700" height="450">									<div class="soundtheme-video-play"><i class="fa fa-play"></i></div>
-                        </a>
-                    </div>
-                    <div class="soundtheme-mod-detail  soundtheme-mod-detail-dark ">
-                        <h1><a href="http://pock.be/sound/world-of-war/">World of War</a></h1>
-                        <h2>
-                            "It's Awesome Movie"
-                        </h2>
-                    </div>
-
-                    <div id="soundtheme-video144" class="mfp-hide">
-                        <div class="col-md-2"></div>
-                        <div class="col-md-8">
-                            <div class="embed-container">
-                                <iframe src="https://www.youtube.com/embed/cXuC_v0KWaU?feature=oembed" allowfullscreen="" width="200" height="113" frameborder="0"></iframe>
-                            </div>
-                        </div>
-                        <div class="col-md-2"></div>
-                    </div>
-                </div>
-
-
-                <div class="col-md-6">
-                    <div class="soundtheme-single-gallery">
-                        <a class="soundtheme-video-popup" href="#soundtheme-video188">
-                            <img src="http://pock.be/sound/wp-content/uploads/2015/10/photo-1436128003323-97dab5d267a9-700x450.jpg" class="attachment-soundtheme-thumb-formal size-soundtheme-thumb-formal wp-post-image" alt="" width="700" height="450">									<div class="soundtheme-video-play"><i class="fa fa-play"></i></div>
-                        </a>
-                    </div>
-                    <div class="soundtheme-mod-detail  soundtheme-mod-detail-dark ">
-                        <h1><a href="http://pock.be/sound/prince-of-persie/">Prince of Persie</a></h1>
-                        <h2>
-                            "Little Prince in Life"
-                        </h2>
-                    </div>
-
-                    <div id="soundtheme-video188" class="mfp-hide">
-                        <div class="col-md-2"></div>
-                        <div class="col-md-8">
-                            <div class="embed-container">
-                                <iframe src="https://www.youtube.com/embed/dJ8hccoZ6hQ?feature=oembed" allowfullscreen="" width="200" height="113" frameborder="0"></iframe>
-                            </div>
-                        </div>
-                        <div class="col-md-2"></div>
-                    </div>
-                </div>
-
-
-                <div class="clearfix"></div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-4 soundtheme-mod-playreposive">
-                </div>
-                <div class="col-md-4">
-                    <div class="soundtheme-mod-bigbutton soundtheme-mod-playbtn">
-                        <a href="http://www.pock.site/sound/video-page-four-grid/" class="btn btn-block btn-lg  btn-success ">View All Videos</a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                </div>
-
-                <div class="clearfix"></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- SOUND THEME / NEWS -->
-    <!-- SOUND THEME / FEATURED SLIDER -->
-
-    <div class="container-fluid soundtheme-mod-newsblog soundtheme-container soundtheme-mod-dark ">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="soundtheme-mod-title  soundtheme-mod-title-dark ">
-                        <h1>Latest Hot News </h1>
-                        <h2>Read Now</h2>
-                    </div>
-                </div>
-
-                <div class="clearfix"></div>
-
-                <div id="soundtheme-module-news" class="util-theme-default util-carousel team-showcase soundtheme-mod-featcon" style="display: block;">
-
-                    <div class="util-wrapper-holder" style="-moz-user-select: none;">
-                        <div class="util-wrapper" style="width: 6240px; display: block;">
-                            <div class="util-item" style="width: 390px; margin-left: 0px; margin-right: 0px;">
-                                <div class="item">
-                                    <div class="meida-holder soundtheme-mod-thumb">
-                                        <div class="soundtheme-single-gallery">
-                                            <a href="http://pock.be/sound/clone-of-monster/">
-                                                <img src="http://pock.be/sound/wp-content/uploads/2015/10/empty-700x450.jpg" class="attachment-soundtheme-thumb-formal size-soundtheme-thumb-formal wp-post-image" alt="" width="700" height="450">											<div class="soundtheme-hover-play"><i class="fa fa-hand-peace-o"></i></div>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="soundtheme-mod-detail soundtheme-mod-news-detail  soundtheme-mod-detail-dark ">
-                                        <h1><a href="http://pock.be/sound/clone-of-monster/">Clone of Monster</a></h1>
-                                        <h2><i class="fa fa-bookmark-o"></i> 14 Oct 15 <i class="fa fa-commenting-o"></i> 3</h2>
-                                        <p>A faucibus velit adipiscing est vitae scelerisque tristique eu adipiscing porta suspendisse aliquet duis class phasellus euismod...</p>
-                                    </div>
-                                </div>
-                            </div><div class="util-item" style="width: 390px; margin-left: 0px; margin-right: 0px;">
-                                <div class="item">
-                                    <div class="meida-holder soundtheme-mod-thumb">
-                                        <div class="soundtheme-single-gallery">
-                                            <a href="http://pock.be/sound/blue-spring-gallery/">
-                                                <img src="http://pock.be/sound/wp-content/uploads/2015/10/photo-1432838765905-6881a8585474-700x450.jpg" class="attachment-soundtheme-thumb-formal size-soundtheme-thumb-formal wp-post-image" alt="" width="700" height="450">											<div class="soundtheme-hover-play"><i class="fa fa-hand-peace-o"></i></div>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="soundtheme-mod-detail soundtheme-mod-news-detail  soundtheme-mod-detail-dark ">
-                                        <h1><a href="http://pock.be/sound/blue-spring-gallery/">Blue Spring Gallery</a></h1>
-                                        <h2><i class="fa fa-bookmark-o"></i> 14 Jul 15 <i class="fa fa-commenting-o"></i> 3</h2>
-                                        <p>A faucibus velit adipiscing est vitae scelerisque tristique eu adipiscing porta suspendisse aliquet duis class phasellus euismod...</p>
-                                    </div>
-                                </div>
-                            </div><div class="util-item" style="width: 390px; margin-left: 0px; margin-right: 0px;">
-                                <div class="item">
-                                    <div class="meida-holder soundtheme-mod-thumb">
-                                        <div class="soundtheme-single-gallery">
-                                            <a href="http://pock.be/sound/corridor-movie/">
-                                                <img src="http://pock.be/sound/wp-content/uploads/2015/10/photo-1435575606138-4edaccd24021-700x450.jpg" class="attachment-soundtheme-thumb-formal size-soundtheme-thumb-formal wp-post-image" alt="" width="700" height="450">											<div class="soundtheme-hover-play"><i class="fa fa-hand-peace-o"></i></div>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="soundtheme-mod-detail soundtheme-mod-news-detail  soundtheme-mod-detail-dark ">
-                                        <h1><a href="http://pock.be/sound/corridor-movie/">Corridor Movie</a></h1>
-                                        <h2><i class="fa fa-bookmark-o"></i> 14 Oct 15 <i class="fa fa-commenting-o"></i> 4</h2>
-                                        <p>A faucibus velit adipiscing est vitae scelerisque tristique eu adipiscing porta suspendisse aliquet duis class phasellus euismod...</p>
-                                    </div>
-                                </div>
-                            </div><div class="util-item" style="width: 390px; margin-left: 0px; margin-right: 0px;">
-                                <div class="item">
-                                    <div class="meida-holder soundtheme-mod-thumb">
-                                        <div class="soundtheme-single-gallery">
-                                            <a href="http://pock.be/sound/animation-planet/">
-                                                <img src="http://pock.be/sound/wp-content/uploads/2015/10/photo-1436759644647-e274ee931eaa-700x450.jpg" class="attachment-soundtheme-thumb-formal size-soundtheme-thumb-formal wp-post-image" alt="" width="700" height="450">											<div class="soundtheme-hover-play"><i class="fa fa-hand-peace-o"></i></div>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="soundtheme-mod-detail soundtheme-mod-news-detail  soundtheme-mod-detail-dark ">
-                                        <h1><a href="http://pock.be/sound/animation-planet/">Animation Planet</a></h1>
-                                        <h2><i class="fa fa-bookmark-o"></i> 14 Oct 15 <i class="fa fa-commenting-o"></i> 3</h2>
-                                        <p>A faucibus velit adipiscing est vitae scelerisque tristique eu adipiscing porta suspendisse aliquet duis class phasellus euismod...</p>
-                                    </div>
-                                </div>
-                            </div><div class="util-item" style="width: 390px; margin-left: 0px; margin-right: 0px;">
-                                <div class="item">
-                                    <div class="meida-holder soundtheme-mod-thumb">
-                                        <div class="soundtheme-single-gallery">
-                                            <a href="http://pock.be/sound/the-lost-photos/">
-                                                <img src="http://pock.be/sound/wp-content/uploads/2015/10/photo-1435458983855-85e70c381591-700x450.jpg" class="attachment-soundtheme-thumb-formal size-soundtheme-thumb-formal wp-post-image" alt="" width="700" height="450">											<div class="soundtheme-hover-play"><i class="fa fa-hand-peace-o"></i></div>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="soundtheme-mod-detail soundtheme-mod-news-detail  soundtheme-mod-detail-dark ">
-                                        <h1><a href="http://pock.be/sound/the-lost-photos/">The Lost Photos</a></h1>
-                                        <h2><i class="fa fa-bookmark-o"></i> 14 Oct 15 <i class="fa fa-commenting-o"></i> 3</h2>
-                                        <p>A faucibus velit adipiscing est vitae scelerisque tristique eu adipiscing porta suspendisse aliquet duis class phasellus euismod...</p>
-                                    </div>
-                                </div>
-                            </div><div class="util-item" style="width: 390px; margin-left: 0px; margin-right: 0px;">
-                                <div class="item">
-                                    <div class="meida-holder soundtheme-mod-thumb">
-                                        <div class="soundtheme-single-gallery">
-                                            <a href="http://pock.be/sound/the-art-street/">
-                                                <img src="http://pock.be/sound/wp-content/uploads/2015/10/22-700x450.jpg" class="attachment-soundtheme-thumb-formal size-soundtheme-thumb-formal wp-post-image" alt="" width="700" height="450">											<div class="soundtheme-hover-play"><i class="fa fa-hand-peace-o"></i></div>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="soundtheme-mod-detail soundtheme-mod-news-detail  soundtheme-mod-detail-dark ">
-                                        <h1><a href="http://pock.be/sound/the-art-street/">The Art Street</a></h1>
-                                        <h2><i class="fa fa-bookmark-o"></i> 14 May 15 <i class="fa fa-commenting-o"></i> 3</h2>
-                                        <p>A faucibus velit adipiscing est vitae scelerisque tristique eu adipiscing porta suspendisse aliquet duis class phasellus euismod...</p>
-                                    </div>
-                                </div>
-                            </div><div class="util-item" style="width: 390px; margin-left: 0px; margin-right: 0px;">
-                                <div class="item">
-                                    <div class="meida-holder soundtheme-mod-thumb">
-                                        <div class="soundtheme-single-gallery">
-                                            <a href="http://pock.be/sound/its-perfect-day/">
-                                                <img src="http://pock.be/sound/wp-content/uploads/2015/10/42-700x450.jpg" class="attachment-soundtheme-thumb-formal size-soundtheme-thumb-formal wp-post-image" alt="" width="700" height="450">											<div class="soundtheme-hover-play"><i class="fa fa-hand-peace-o"></i></div>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="soundtheme-mod-detail soundtheme-mod-news-detail  soundtheme-mod-detail-dark ">
-                                        <h1><a href="http://pock.be/sound/its-perfect-day/">It’s Perfect Day</a></h1>
-                                        <h2><i class="fa fa-bookmark-o"></i> 14 Oct 15 <i class="fa fa-commenting-o"></i> 3</h2>
-                                        <p>A faucibus velit adipiscing est vitae scelerisque tristique eu adipiscing porta suspendisse aliquet duis class phasellus euismod...</p>
-                                    </div>
-                                </div>
-                            </div><div class="util-item" style="width: 390px; margin-left: 0px; margin-right: 0px;">
-                                <div class="item">
-                                    <div class="meida-holder soundtheme-mod-thumb">
-                                        <div class="soundtheme-single-gallery">
-                                            <a href="http://pock.be/sound/past-time-paradise/">
-                                                <img src="http://pock.be/sound/wp-content/uploads/2015/10/27-700x450.jpg" class="attachment-soundtheme-thumb-formal size-soundtheme-thumb-formal wp-post-image" alt="" width="700" height="450">											<div class="soundtheme-hover-play"><i class="fa fa-hand-peace-o"></i></div>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="soundtheme-mod-detail soundtheme-mod-news-detail  soundtheme-mod-detail-dark ">
-                                        <h1><a href="http://pock.be/sound/past-time-paradise/">Past Time Paradise</a></h1>
-                                        <h2><i class="fa fa-bookmark-o"></i> 14 Oct 15 <i class="fa fa-commenting-o"></i> 3</h2>
-                                        <p>A faucibus velit adipiscing est vitae scelerisque tristique eu adipiscing porta suspendisse aliquet duis class phasellus euismod...</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="util-pagination" style="display: block;"><div class="util-page active-page"><span> </span></div><div class="util-page"><span> </span></div><div class="util-page"><span> </span></div></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- SOUND THEME / BIG NEWS -->
-    <!-- SOUND THEME / CONTACT FORMS -->
-    <div class="container-fluid soundtheme-darkback-one soundtheme-footer-wall">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-
-                    <div class="soundtheme-related-title">
-                        <h1>Share Your Passion</h1>
-
-                        <h6>Sound Connect</h6>
-                    </div>
-
-                    <div class="soundtheme-contact-form">
-                        <div class="row">
-                            <div class="col-md-4"></div>
-                            <div class="col-md-4">
-                                '<div role="form" class="wpcf7" id="wpcf7-f85-o1" dir="ltr">
-                                    <div class="screen-reader-response"></div>
-                                    <form action="/sound/home-page-dark/#wpcf7-f85-o1" method="post" class="wpcf7-form" novalidate="novalidate">
-                                        <div style="display: none;">
-                                            <input name="_wpcf7" value="85" type="hidden">
-                                            <input name="_wpcf7_version" value="4.6" type="hidden">
-                                            <input name="_wpcf7_locale" value="" type="hidden">
-                                            <input name="_wpcf7_unit_tag" value="wpcf7-f85-o1" type="hidden">
-                                            <input name="_wpnonce" value="fa093ce4f9" type="hidden">
-                                        </div>
-                                        <p>
-                                            <span class="wpcf7-form-control-wrap your-name"><input name="your-name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Name:" type="text"></span><br>
-                                            <span class="wpcf7-form-control-wrap your-email"><input name="your-email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="E-Mail:" type="email"></span><br>
-                                            <span class="wpcf7-form-control-wrap your-subject"><input name="your-subject" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" placeholder="Subject:" type="text"></span><br>
-                                            <span class="wpcf7-form-control-wrap your-message"><textarea name="your-message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Message:"></textarea></span><br>
-                                            <input value="Send Message" class="wpcf7-form-control wpcf7-submit" type="submit"><span class="ajax-loader"></span>
-                                        </p>
-                                        <div class="wpcf7-response-output wpcf7-display-none"></div>
-                                    </form>
-                                </div>'
-                            </div>
-                            <div class="col-md-4"></div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-    </div>
     <div class="clearfix"></div>
 
     <!-- SOUND THEME / SOCIAL ICONS -->
@@ -1159,3 +852,35 @@
     <div class="clearfix"></div>
 </div>
 
+@section scripts{
+    <script>
+        var list = document.getElementById("listanbp");
+        var pr = document.getElementById("prevnbp");
+        pr.onclick = function () {
+            for (var i = 0; i < list.children.length; i++) {
+                console.log("aaa");
+                if (list.children[i].className == "current") {
+                    if (list.children[i - 1] != null) {
+                        list.children[i].className = "";
+                        list.children[i - 1].className = "current";
+                        i = list.children.length;
+                    }
+                }
+            }
+        }
+        var nx = document.getElementById("nextnbp");
+        nx.onclick = function () {
+            for (var i = 0; i < list.children.length; i++) {
+                if (list.children[i].className == "current") {
+                    if (list.children[i+1] != null) {
+                        list.children[i].className = "";
+                        list.children[i + 1].className = "current";
+                        i = list.children.length;
+                    }
+                }
+            }
+        }
+
+    </script>
+
+}
