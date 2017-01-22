@@ -3,44 +3,57 @@
 <div id="content" class="site-content">
     <!-- SOUND THEME / MODULE SLIDER -->
     <!-- Module Slider -->
-
-    <div id="component" class="component component-fullwidth fxSlideBehind">
-        <ul class="itemwrap">
-            <li class="current" style="background-image: url(http://pock.be/sound/wp-content/uploads/2015/10/Music-Sliders.png);">
+    <div id="component" class="component component-fullwidth fxStickIt">
+        <ul id="listanbp" class="itemwrap">
+            <li class="current" style="background-image: url(http://pock.be/sound/wp-content/uploads/2015/10/Main-Slide1.png);">
                 <div class="soundtheme-slidertitle">
-                    <h1>Micheal Smith</h1>
-                    <h2>Dance in House</h2>
+                    <h1>Creative Awesome Sound</h1>
+                    <h2>Music Band Magazine</h2>
                     <div class="soundtheme-slider-button">
-                        <a href="http://www.pock.site/sound/dance-in-house/" class="btn btn-lg btn-success">
-                            Listen Now
-                        </a>
+                        <div class="soundtheme-slider-button">
+                            @Html.ActionLink("Discovery Artists", "Index", "Artist", null, new { @class = "btn btn-lg btn-success" })
+                        </div>
                     </div>
                 </div>
-                <img src="http://pock.be/sound/wp-content/uploads/2015/10/Music-Sliders.png" alt="Slider" />
+                <img src="http://pock.be/sound/wp-content/uploads/2015/10/Main-Slide1.png" alt="Slider">
             </li>
-            <li style="background-image: url(http://pock.be/sound/wp-content/uploads/2015/10/Music-Slider.png);">
+            <li style="background-image: url(http://pock.be/sound/wp-content/uploads/2015/10/Music-Sliders.png);">
                 <div class="soundtheme-slidertitle">
-                    <h1>Micheal Smith</h1>
-                    <h2>Beatiful Minimal World</h2>
+                    <h1>Creative Awesome Artists</h1>
+                    <h2>Music Band Magazine</h2>
                     <div class="soundtheme-slider-button">
-                        <a href="http://www.pock.site/sound/beatiful-minimal-world/" class="btn btn-lg btn-success">
-                            Listen Now
-                        </a>
+
+                        @Html.ActionLink("Discovery Albums", "Index", "Album", null, new { @class = "btn btn-lg btn-success" })
+
+
                     </div>
                 </div>
-                <img src="http://pock.be/sound/wp-content/uploads/2015/10/Music-Slider.png" alt="Slider" />
+                <img src="http://pock.be/sound/wp-content/uploads/2015/10/Music-Sliders.png" alt="Slider">
+            </li>
+            <li style="background-image: url(http://pock.be/sound/wp-content/uploads/2015/10/Video-Slide.png);">
+                <div class="soundtheme-slidertitle">
+                    <h1>Creative Awesome Videos</h1>
+                    <h2>Video Magazine</h2>
+                    <div class="soundtheme-slider-button">
+                        @Html.ActionLink("Discovery Groups", "Index", "Group", null, new { @class = "btn btn-lg btn-success" })
+
+                    </div>
+                </div>
+                <img src="http://pock.be/sound/wp-content/uploads/2015/10/Video-Slide.png" alt="Slider">
             </li>
         </ul>
         <nav>
-            <a class="prev" href="#"><i class="fa fa-chevron-left"></i></a>
-            <a class="next" href="#"><i class="fa fa-chevron-right"></i></a>
+            <a id="prevnbp" class="prev">
+                <i class="fa fa-chevron-left"></i>
+            </a>
+            <a id="nextnbp" class="next">
+                <i class="fa fa-chevron-right"></i>
+            </a>
         </nav>
     </div>
     <div class="clearfix"></div>
 
-
     <!-- SOUND THEME / NEW ALBUM RELEASE LIST -->
-    <!-- SOUND THEME / FEATURED SLIDER -->
     <style type="text/css">
         .soundtheme-mod-playlist {
             background: url(http://pock.be/sound/wp-content/uploads/2015/10/Music-Header.png) no-repeat center center;
@@ -266,7 +279,7 @@
                                     <div class="item">
                                         <div class="meida-holder soundtheme-mod-thumb">
                                             <div class="soundtheme-single-gallery">
-                                                <a href="http://pock.be/sound/samuel-smith/">
+                                                <a href="@Url.Action("Details", "Album", new { id = album.Reference.Id })">
                                                     <img src="http://pock.be/sound/wp-content/uploads/2015/10/37-450x450.jpg" class="attachment-soundtheme-thumb-medium size-soundtheme-thumb-medium wp-post-image" alt="" srcset="http://pock.be/sound/wp-content/uploads/2015/10/37-450x450.jpg 450w, http://pock.be/sound/wp-content/uploads/2015/10/37-150x150.jpg 150w, http://pock.be/sound/wp-content/uploads/2015/10/37-250x250.jpg 250w" sizes="(max-width: 450px) 100vw, 450px" width="450" height="450">
                                                     <div class="soundtheme-hover-play">
                                                         <i class="fa fa-hand-peace-o"></i>
@@ -306,7 +319,7 @@
         }
     </style>
 
-    <!-- SOUND THEME / SOCIAL ICONS -->
+    <!-- SOUND THEME / FOOTER -->
     <div class="container-fluid soundtheme-darkback-two">
         <div class="container">
             <div class="row">
@@ -332,8 +345,39 @@
             </div>
         </div>
     </div>
-    <div class="clearfix"></div>
-
 </div>
 <!-- SOUND THEME / AJAX CONTENT END -->
+
+@section scripts{
+    <script>
+        var list = document.getElementById("listanbp");
+        var pr = document.getElementById("prevnbp");
+        pr.onclick = function () {
+            for (var i = 0; i < list.children.length; i++) {
+                console.log("aaa");
+                if (list.children[i].className == "current") {
+                    if (list.children[i - 1] != null) {
+                        list.children[i].className = "";
+                        list.children[i - 1].className = "current";
+                        i = list.children.length;
+                    }
+                }
+            }
+        }
+        var nx = document.getElementById("nextnbp");
+        nx.onclick = function () {
+            for (var i = 0; i < list.children.length; i++) {
+                if (list.children[i].className == "current") {
+                    if (list.children[i+1] != null) {
+                        list.children[i].className = "";
+                        list.children[i + 1].className = "current";
+                        i = list.children.length;
+                    }
+                }
+            }
+        }
+
+    </script>
+
+}
 

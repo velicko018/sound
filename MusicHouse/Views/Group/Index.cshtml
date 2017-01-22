@@ -4,37 +4,52 @@
 <div id="content" class="site-content">
     <!-- SOUND THEME / MODULE SLIDER -->
     <!-- Module Slider -->
-
-    <div id="component" class="component component-fullwidth fxSoftScale">
-        <ul class="itemwrap">
-            <li class="current" style="background-image: url(http://pock.be/sound/wp-content/uploads/2015/10/Artist-Slide.png);">
+    <div id="component" class="component component-fullwidth fxStickIt">
+        <ul id="listanbp" class="itemwrap">
+            <li class="current" style="background-image: url(http://pock.be/sound/wp-content/uploads/2015/10/Main-Slide1.png);">
                 <div class="soundtheme-slidertitle">
-                    <h1>Micheal Smith</h1>
-                    <h2>Jazz Musician</h2>
+                    <h1>Creative Awesome Sound</h1>
+                    <h2>Music Band Magazine</h2>
                     <div class="soundtheme-slider-button">
-                        <a href="http://www.pock.site/sound/micheal-smith/" class="btn btn-lg btn-success">
-                            Artist Page
-                        </a>
+                        <div class="soundtheme-slider-button">
+                            @Html.ActionLink("Discovery Artists", "Index", "Artist", null, new { @class = "btn btn-lg btn-success" })
+                        </div>
                     </div>
                 </div>
-                <img src="http://pock.be/sound/wp-content/uploads/2015/10/Artist-Slide.png" alt="Slider" />
+                <img src="http://pock.be/sound/wp-content/uploads/2015/10/Main-Slide1.png" alt="Slider">
             </li>
-            <li style="background-image: url(http://pock.be/sound/wp-content/uploads/2015/10/Artist-Slides.png);">
+            <li style="background-image: url(http://pock.be/sound/wp-content/uploads/2015/10/Music-Sliders.png);">
                 <div class="soundtheme-slidertitle">
-                    <h1>Elizabeth Smith</h1>
-                    <h2>Rock Musician</h2>
+                    <h1>Creative Awesome Artists</h1>
+                    <h2>Music Band Magazine</h2>
                     <div class="soundtheme-slider-button">
-                        <a href="http://www.pock.site/sound/elizabeth-smith/" class="btn btn-lg btn-success">
-                            Artist Page
-                        </a>
+
+                        @Html.ActionLink("Discovery Albums", "Index", "Album", null, new { @class = "btn btn-lg btn-success" })
+
+
                     </div>
                 </div>
-                <img src="http://pock.be/sound/wp-content/uploads/2015/10/Artist-Slides.png" alt="Slider" />
+                <img src="http://pock.be/sound/wp-content/uploads/2015/10/Music-Sliders.png" alt="Slider">
+            </li>
+            <li style="background-image: url(http://pock.be/sound/wp-content/uploads/2015/10/Video-Slide.png);">
+                <div class="soundtheme-slidertitle">
+                    <h1>Creative Awesome Videos</h1>
+                    <h2>Video Magazine</h2>
+                    <div class="soundtheme-slider-button">
+                        @Html.ActionLink("Discovery Groups", "Index", "Group", null, new { @class = "btn btn-lg btn-success" })
+
+                    </div>
+                </div>
+                <img src="http://pock.be/sound/wp-content/uploads/2015/10/Video-Slide.png" alt="Slider">
             </li>
         </ul>
         <nav>
-            <a class="prev" href="#"><i class="fa fa-chevron-left"></i></a>
-            <a class="next" href="#"><i class="fa fa-chevron-right"></i></a>
+            <a id="prevnbp" class="prev">
+                <i class="fa fa-chevron-left"></i>
+            </a>
+            <a id="nextnbp" class="next">
+                <i class="fa fa-chevron-right"></i>
+            </a>
         </nav>
     </div>
     <div class="clearfix"></div>
@@ -78,7 +93,7 @@
                                 <div class="col-md-5">
                                     <div class="soundtheme-blog-list-img">
                                         <div class="soundtheme-single-gallery">
-                                            <a href="http://pock.be/sound/normal-blog-post/">
+                                            <a href="@Url.Action("Details", "Group", new { id = item.Reference.Id })">
                                                 <img width="450" height="450" src="http://pock.be/sound/wp-content/uploads/2015/10/photo-1436476549056-cdf7e8f3d8e3-450x450.jpg" class="attachment-soundtheme-thumb-medium size-soundtheme-thumb-medium wp-post-image" alt="" srcset="http://pock.be/sound/wp-content/uploads/2015/10/photo-1436476549056-cdf7e8f3d8e3-450x450.jpg 450w, http://pock.be/sound/wp-content/uploads/2015/10/photo-1436476549056-cdf7e8f3d8e3-150x150.jpg 150w, http://pock.be/sound/wp-content/uploads/2015/10/photo-1436476549056-cdf7e8f3d8e3-250x250.jpg 250w" sizes="(max-width: 450px) 100vw, 450px"/>
                                                 <div class="soundtheme-hover-play">
                                                     <i class="fa fa-hand-peace-o"></i>
@@ -89,7 +104,10 @@
                                 </div>
                                 <div class="col-md-7">
                                     <div class="soundtheme-blog-list">
-                                        <h1><a href="http://pock.be/sound/normal-blog-post/">@item.Data.GroupName</a>
+                                        <h1>
+                                            <a href="@Url.Action("Details", "Group", new { id = item.Reference.Id })">
+                                                @item.Data.GroupName
+                                            </a>
                                         </h1>
                                         <hr/>
                                         <div class="soundtheme-post-detail">
@@ -98,7 +116,6 @@
                                                 euismod fames parturient hac ac elit elit eleifend litora condimentum at. 
                                                 Lorem parturient primis viverra nunc ipsum nisl eleifend donec consectetur
                                                 magna fusce hendrerit a lobortis laoreet adipiscing ad suspendisse dui a dictum. 
-                                            
                                             </p>
                                             @Html.ActionLink("Details", "Details",new { id=  @item.Reference.Id})           
                                         </div>
@@ -113,8 +130,7 @@
                 </div>
                 <!-- #SIDEBAR -->
                 <div class="col-md-4">
-                    <div class="soundtheme-widget">
-                        
+                    <div class="soundtheme-widget">                        
                         <aside id="archives-2" class="widget widget_archive">
                             <div class="soundtheme-widgettitle"><h1 class="widget-title">Genres</h1></div>		
                                 <ul>
@@ -134,30 +150,12 @@
                     </div>
                 </div>
                 <div class="clearfix"></div>
-
-                <!-- # RIGHT BLOG -->
-
             </div>
         </div>
     </div>
     <div class="clearfix"></div>
 
-
-    <style type="text/css">
-        .soundtheme-footer-wall {
-            background: url(http://pock.be/sound/wp-content/uploads/2015/10/Contact-Back.png) no-repeat center center;
-            background-color: #24252A;
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
-            filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://pock.be/sound/wp-content/uploads/2015/10/Contact-Back.png", sizingMethod='scale');
-            -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://pock.be/sound/wp-content/uploads/2015/10/Contact-Back.png', sizingMethod='scale')";
-        }
-    </style>
-
-
-    <!-- SOUND THEME / SOCIAL ICONS -->
+    <!-- SOUND THEME / FOOTER -->
     <div class="container-fluid soundtheme-darkback-two">
         <div class="container">
             <div class="row">
@@ -184,7 +182,38 @@
         </div>
     </div>
     <div class="clearfix"></div>
-
-
 </div>
 <!-- SOUND THEME / AJAX CONTENT END -->
+
+@section scripts{
+    <script>
+        var list = document.getElementById("listanbp");
+        var pr = document.getElementById("prevnbp");
+        pr.onclick = function () {
+            for (var i = 0; i < list.children.length; i++) {
+                console.log("aaa");
+                if (list.children[i].className == "current") {
+                    if (list.children[i - 1] != null) {
+                        list.children[i].className = "";
+                        list.children[i - 1].className = "current";
+                        i = list.children.length;
+                    }
+                }
+            }
+        }
+        var nx = document.getElementById("nextnbp");
+        nx.onclick = function () {
+            for (var i = 0; i < list.children.length; i++) {
+                if (list.children[i].className == "current") {
+                    if (list.children[i+1] != null) {
+                        list.children[i].className = "";
+                        list.children[i + 1].className = "current";
+                        i = list.children.length;
+                    }
+                }
+            }
+        }
+
+    </script>
+
+}

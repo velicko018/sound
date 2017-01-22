@@ -2,40 +2,54 @@
 
 <!-- SOUND THEME / AJAX CONTENT START -->
 <div id="content" class="site-content">
-    <!-- SOUND THEME / HEADER AREA -->
     <!-- SOUND THEME / MODULE SLIDER -->
     <!-- Module Slider -->
-
-    <div id="component" class="component component-fullwidth fxSoftScale">
-        <ul class="itemwrap">
-            <li class="current" style="background-image: url(http://pock.be/sound/wp-content/uploads/2015/10/Artist-Slide.png);">
+    <div id="component" class="component component-fullwidth fxStickIt">
+        <ul id="listanbp" class="itemwrap">
+            <li class="current" style="background-image: url(http://pock.be/sound/wp-content/uploads/2015/10/Main-Slide1.png);">
                 <div class="soundtheme-slidertitle">
-                    <h1>Micheal Smith</h1>
-                    <h2>Jazz Musician</h2>
+                    <h1>Creative Awesome Sound</h1>
+                    <h2>Music Band Magazine</h2>
                     <div class="soundtheme-slider-button">
-                        <a href="http://www.pock.site/sound/micheal-smith/" class="btn btn-lg btn-success">
-                            Artist Page
-                        </a>
+                        <div class="soundtheme-slider-button">
+                            @Html.ActionLink("Discovery Artists", "Index", "Artist", null, new { @class = "btn btn-lg btn-success" })
+                        </div>
                     </div>
                 </div>
-                <img src="http://pock.be/sound/wp-content/uploads/2015/10/Artist-Slide.png" alt="Slider" />
+                <img src="http://pock.be/sound/wp-content/uploads/2015/10/Main-Slide1.png" alt="Slider">
             </li>
-            <li style="background-image: url(http://pock.be/sound/wp-content/uploads/2015/10/Artist-Slides.png);">
+            <li style="background-image: url(http://pock.be/sound/wp-content/uploads/2015/10/Music-Sliders.png);">
                 <div class="soundtheme-slidertitle">
-                    <h1>Elizabeth Smith</h1>
-                    <h2>Rock Musician</h2>
+                    <h1>Creative Awesome Artists</h1>
+                    <h2>Music Band Magazine</h2>
                     <div class="soundtheme-slider-button">
-                        <a href="http://www.pock.site/sound/elizabeth-smith/" class="btn btn-lg btn-success">
-                            Artist Page
-                        </a>
+
+                        @Html.ActionLink("Discovery Albums", "Index", "Album", null, new { @class = "btn btn-lg btn-success" })
+
+
                     </div>
                 </div>
-                <img src="http://pock.be/sound/wp-content/uploads/2015/10/Artist-Slides.png" alt="Slider" />
+                <img src="http://pock.be/sound/wp-content/uploads/2015/10/Music-Sliders.png" alt="Slider">
+            </li>
+            <li style="background-image: url(http://pock.be/sound/wp-content/uploads/2015/10/Video-Slide.png);">
+                <div class="soundtheme-slidertitle">
+                    <h1>Creative Awesome Videos</h1>
+                    <h2>Video Magazine</h2>
+                    <div class="soundtheme-slider-button">
+                        @Html.ActionLink("Discovery Groups", "Index", "Group", null, new { @class = "btn btn-lg btn-success" })
+
+                    </div>
+                </div>
+                <img src="http://pock.be/sound/wp-content/uploads/2015/10/Video-Slide.png" alt="Slider">
             </li>
         </ul>
         <nav>
-            <a class="prev" href="#"><i class="fa fa-chevron-left"></i></a>
-            <a class="next" href="#"><i class="fa fa-chevron-right"></i></a>
+            <a id="prevnbp" class="prev">
+                <i class="fa fa-chevron-left"></i>
+            </a>
+            <a id="nextnbp" class="next">
+                <i class="fa fa-chevron-right"></i>
+            </a>
         </nav>
     </div>
     <div class="clearfix"></div>
@@ -44,25 +58,22 @@
     <div class="container-fluid soundtheme-header-bottomback">
         <div class="container">
             <div class="row">
-                
-
                 <div class="hidden-xs col-xs-12 col-md-8 col-md-offset-2">
                     <div class="soundtheme-filters">
                         <div class="soundtheme-filter-menu">
-                            
-                                <ul>
-                                    @{
-                                        foreach (var item in Model.Genres)
+                            <ul>
+                                @{
+                                    foreach (var item in Model.Genres)
+                                    {
+                                        @Ajax.ActionLink(item.Data.Name, "Index", new { name = item.Data.Name }, new AjaxOptions()
                                         {
-                                            @Ajax.ActionLink(item.Data.Name, "Index", new { name = item.Data.Name }, new AjaxOptions()
-                                       {
-                                           HttpMethod = "GET",
-                                           InsertionMode = InsertionMode.Replace,
-                                           UpdateTargetId = "artistModel",
-                                       }, new { @class = "list-group-item" });
-                                        }
+                                            HttpMethod = "GET",
+                                            InsertionMode = InsertionMode.Replace,
+                                            UpdateTargetId = "artistModel",
+                                        }, new { @class = "list-group-item" });
                                     }
-                                </ul>
+                                }
+                            </ul>
                             <div class="clearfix"></div>
                         </div>
                     </div>
@@ -75,7 +86,7 @@
     <!-- SOUND THEME / RESPONSIVE SPACE -->
     <div class="soundtheme-single-space"></div>
 
-    <!-- SOUND THEME / DETAILS -->
+    <!-- SOUND THEME / ARTIST LIST -->
     <div class="container-fluid soundtheme-white-backone soundtheme-single-details soundtheme-blog-loops">
         <div class="container">
             <div class="row">
@@ -92,9 +103,10 @@
                             <div class="soundtheme-filter-post">
                                 <div class="soundtheme-blog-list-img">
                                     <div class="soundtheme-single-gallery">
-                                        <a href="http://pock.be/sound/samuel-smith/">
-                                            <img width="450" height="450" src="http://pock.be/sound/wp-content/uploads/2015/10/37-450x450.jpg" class="attachment-soundtheme-thumb-medium size-soundtheme-thumb-medium wp-post-image" alt="" srcset="http://pock.be/sound/wp-content/uploads/2015/10/37-450x450.jpg 450w, http://pock.be/sound/wp-content/uploads/2015/10/37-150x150.jpg 150w, http://pock.be/sound/wp-content/uploads/2015/10/37-250x250.jpg 250w" sizes="(max-width: 450px) 100vw, 450px"/>
-                                            <div class="soundtheme-hover-play"><i class="fa fa-hand-peace-o"></i>
+                                        <a href="@Url.Action("Details", "Artist", new { id = artist.Reference.Id })">
+                                            <img width="450" height="450" src="http://pock.be/sound/wp-content/uploads/2015/10/37-450x450.jpg" class="attachment-soundtheme-thumb-medium size-soundtheme-thumb-medium wp-post-image" alt="" srcset="http://pock.be/sound/wp-content/uploads/2015/10/37-450x450.jpg 450w, http://pock.be/sound/wp-content/uploads/2015/10/37-150x150.jpg 150w, http://pock.be/sound/wp-content/uploads/2015/10/37-250x250.jpg 250w" sizes="(max-width: 450px) 100vw, 450px" />
+                                            <div class="soundtheme-hover-play">
+                                                <i class="fa fa-hand-peace-o"></i>
                                             </div>
                                         </a>
                                     </div>
@@ -102,7 +114,7 @@
 
                                 <div class="soundtheme-filter-posting">
                                     <h1>
-                                        <a href="http://pock.be/sound/samuel-smith/">@artist.Data.FullName</a>
+                                        @artist.Data.FullName
                                     </h1>
                                 </div>
                             </div>
@@ -114,21 +126,7 @@
     </div>
     <div class="clearfix"></div>
 
-
-    <style type="text/css">
-        .soundtheme-footer-wall {
-            background: url(http://pock.be/sound/wp-content/uploads/2015/10/Contact-Back.png) no-repeat center center;
-            background-color: #24252A;
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
-            filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://pock.be/sound/wp-content/uploads/2015/10/Contact-Back.png", sizingMethod='scale');
-            -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://pock.be/sound/wp-content/uploads/2015/10/Contact-Back.png', sizingMethod='scale')";
-        }
-    </style>
-
-    <!-- SOUND THEME / SOCIAL ICONS -->
+    <!-- SOUND THEME / FOOTER -->
     <div class="container-fluid soundtheme-darkback-two">
         <div class="container">
             <div class="row">
@@ -154,8 +152,38 @@
             </div>
         </div>
     </div>
-    <div class="clearfix"></div>
-
-
 </div>
 <!-- SOUND THEME / AJAX CONTENT END -->
+
+@section scripts{
+    <script>
+        var list = document.getElementById("listanbp");
+        var pr = document.getElementById("prevnbp");
+        pr.onclick = function () {
+            for (var i = 0; i < list.children.length; i++) {
+                console.log("aaa");
+                if (list.children[i].className == "current") {
+                    if (list.children[i - 1] != null) {
+                        list.children[i].className = "";
+                        list.children[i - 1].className = "current";
+                        i = list.children.length;
+                    }
+                }
+            }
+        }
+        var nx = document.getElementById("nextnbp");
+        nx.onclick = function () {
+            for (var i = 0; i < list.children.length; i++) {
+                if (list.children[i].className == "current") {
+                    if (list.children[i+1] != null) {
+                        list.children[i].className = "";
+                        list.children[i + 1].className = "current";
+                        i = list.children.length;
+                    }
+                }
+            }
+        }
+
+    </script>
+
+}
