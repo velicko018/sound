@@ -21,7 +21,7 @@ namespace RedisDataLayer
 
         public DateTime? YearOfDecay { get; set; }
 
-        public Groups(string groupName, string origin, string website, byte numberOfMembers, DateTime est, DateTime yod)
+        public Groups(string groupName, string origin, string website, byte numberOfMembers, DateTime est, DateTime? yod)
         {
             this.GroupName = groupName;
             this.Origin = origin;
