@@ -30,6 +30,7 @@ namespace MusicHouse.Models
         [Display(Name = "Birth Date")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Required]
         public DateTime BirthDate { get; set; }
 
         [JsonProperty(PropertyName = "ancestry")]

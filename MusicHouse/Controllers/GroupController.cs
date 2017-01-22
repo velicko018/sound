@@ -103,6 +103,7 @@ namespace MusicHouse.Controllers
                 .Limit(1)
                 .Results;
 
+                var grpToRedis = group.First().Data;
                 var albums = WebApiConfig.GraphClient.Cypher
                     .Match("(a:Group), (b:Album)")
                     .Where("(a)-[:HAVE_ALBUM]->(b) AND ID(a) = {id}")
@@ -117,6 +118,9 @@ namespace MusicHouse.Controllers
                     Group = group.First(),
                     Albums = albums,
                 };
+
+                LeaderBoard l = new LeaderBoard();
+                l.SetGroupClicks(grpToRedis.GroupName, grpToRedis.Origin, grpToRedis.Origin, grpToRedis.NumberOfMembers, grpToRedis.Established, grpToRedis.YearOfDecay);
                 return View("Details", groupAlbumVM);
             }
             catch (Exception e)

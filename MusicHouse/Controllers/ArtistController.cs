@@ -111,6 +111,10 @@ namespace MusicHouse.Controllers
                 .Limit(1)
                 .Results;
 
+                var artToRedis = artist.First().Data;
+                LeaderBoard l = new LeaderBoard();
+                l.SetArtistClicks(artToRedis.FirstName, artToRedis.MiddleName, artToRedis.LastName, artToRedis.ArtistName, artToRedis.BirthDate, artToRedis.Ancestry, artToRedis.DeathDate, artToRedis.Biography);
+                
                 return View("Details", artist.First());
             }
             catch (Exception e)
@@ -305,12 +309,12 @@ namespace MusicHouse.Controllers
             return View("Error");
         }
 
-        public void WriteArtistToRedis(string FirstName, string MiddleName, string LastName, string ArtistName, DateTime birth, string ances, DateTime dth)
+        public void WriteArtistToRedis(string FirstName, string MiddleName, string LastName, string ArtistName, DateTime birth, string ances, DateTime dth, string bio)
         {
             if (Request.IsAjaxRequest())
             {
                 LeaderBoard l = new LeaderBoard();
-                l.SetArtistClicks(FirstName, MiddleName, LastName, ArtistName, birth, ances,dth);
+                l.SetArtistClicks(FirstName, MiddleName, LastName, ArtistName, birth, ances,dth,bio);
                 //var p= l.GetSongClicks(songName+"_"+writer);
             }
 

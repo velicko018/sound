@@ -24,7 +24,7 @@ namespace RedisDataLayer
 
         public byte Songs { get; set; }
 
-        public byte? Singles { get; set; }
+        public byte Singles { get; set; }
 
         public string Length { get; set; }
 

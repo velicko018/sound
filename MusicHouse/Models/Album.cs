@@ -12,6 +12,7 @@ namespace MusicHouse.Models
     {
         [JsonProperty(PropertyName = "albumName")]
         [Display(Name = "Album Name")]
+        [Required]
         public string AlbumName { get; set; }
 
         [JsonProperty(PropertyName = "numberOfCopies")]
@@ -21,22 +22,26 @@ namespace MusicHouse.Models
 
         [JsonProperty(PropertyName = "producer")]
         [Display(Name = "Producer Name")]
+        [Required]
         public string Producer { get; set; }
 
         [JsonProperty(PropertyName = "studio")]
         [Display(Name = "Studio Name")]
+        [Required]
         public string Studio { get; set; }
 
         [JsonProperty(PropertyName = "recordedFrom")]
         [Display(Name = "Recorded From")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Required]
         public DateTime RecordedFrom { get; set; }
 
         [JsonProperty(PropertyName = "recordedTo")]
         [Display(Name = "Recorded To")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Required]
         public DateTime RecordedTo { get; set; }
 
         [JsonProperty(PropertyName = "songs")]
@@ -47,7 +52,7 @@ namespace MusicHouse.Models
         [JsonProperty(PropertyName = "singles")]
         [Display(Name = "Singles")]
         [Range(0, 999)]
-        public byte? Singles { get; set; }
+        public byte Singles { get; set; }
 
         [JsonProperty(PropertyName = "length")]
         [DataType(DataType.Time)]

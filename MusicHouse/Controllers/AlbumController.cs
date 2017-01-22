@@ -66,6 +66,8 @@ namespace MusicHouse.Controllers
                     .Limit(1)
                     .Results;
 
+                var albumstoRedis = album.First().Data;
+
                 var songs = WebApiConfig.GraphClient.Cypher
                     .Match("(s:Song), (b:Album)")
                     .Where("(b)-[:HAS_SONG]->(s) AND ID(b) = {id}")
@@ -86,6 +88,8 @@ namespace MusicHouse.Controllers
                     Group = group.First(),
                     Songs = songs
                 };
+                LeaderBoard l = new LeaderBoard();
+                l.SetAlbumClicks(albumstoRedis.AlbumName, albumstoRedis.NumberOfCopies, albumstoRedis.Producer, albumstoRedis.Studio, albumstoRedis.RecordedFrom, albumstoRedis.RecordedTo, albumstoRedis.Songs, albumstoRedis.Singles, albumstoRedis.Length, albumstoRedis.Released);
 
                 return View("Details", albumSongsGroupVM);
 

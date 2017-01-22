@@ -27,12 +27,14 @@ namespace MusicHouse.Models
         [Display(Name = "Established")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Required]
         public DateTime Established { get; set; }
 
         [JsonProperty(PropertyName = "yearOfDecay")]
         [Display(Name = "Year Of Decay")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Required]
         public DateTime? YearOfDecay { get; set; }
 
         public Group(string groupname, byte numberofmembers, string origin, string website, DateTime established, DateTime yearOfDecay)

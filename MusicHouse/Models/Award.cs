@@ -17,6 +17,7 @@ namespace MusicHouse.Models
         [Display(Name = "Year")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Required]
         public DateTime Year { get; set; }
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "festival")]

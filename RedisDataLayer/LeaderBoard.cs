@@ -71,17 +71,17 @@ namespace RedisDataLayer
 
             return redis.Incr("clicks" + id +"songs");
         }
-        public long SetArtistClicks(string FirstName, string MiddleName, string LastName, string ArtistName, DateTime birth, string ances, DateTime dth)
+        public long SetArtistClicks(string FirstName, string MiddleName, string LastName, string ArtistName, DateTime birth, string ances, DateTime? dth,string bio)
         {
             string id = ArtistName;
-            Artists artist = new Artists(FirstName, MiddleName, LastName, ArtistName,birth,ances,dth);
+            Artists artist = new Artists(FirstName, MiddleName, LastName, ArtistName,birth,ances,dth,bio);
 
             redis.PushItemToList("artists" + id, artist.ToJsonString());
             Artists.Add(artist);
 
             return redis.Incr("clicks" + id + "artists");
         }
-        public long SetGroupClicks(string GroupName, string Origin, string Website, byte NumberOfMembers, DateTime establ, DateTime decay)
+        public long SetGroupClicks(string GroupName, string Origin, string Website, byte NumberOfMembers, DateTime establ, DateTime? decay)
         {
             string id = GroupName;
             Groups group = new Groups(GroupName, Origin, Website, NumberOfMembers,establ,decay);

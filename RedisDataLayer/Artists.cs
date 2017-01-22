@@ -23,7 +23,9 @@ namespace RedisDataLayer
 
         public DateTime? DeathDate { get; set; }
 
-        public Artists(string FirstName, string MiddleName, string LastName, string ArtistName,DateTime birth,string ances,DateTime dth)
+        public string Biography { get; set; }
+
+        public Artists(string FirstName, string MiddleName, string LastName, string ArtistName,DateTime birth,string ances,DateTime? dth, string bio)
         {
             this.FirstName = FirstName;
             this.MiddleName = MiddleName;
@@ -32,6 +34,7 @@ namespace RedisDataLayer
             this.BirthDate = birth;
             this.Ancestry = ances;
             this.DeathDate = dth;
+            this.Biography = bio;
         }
 
         public Artists()
