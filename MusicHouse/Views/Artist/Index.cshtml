@@ -1,4 +1,5 @@
-﻿
+﻿@model MusicHouse.ViewModels.ArtistGenreViewModel
+
 <!-- SOUND THEME / AJAX CONTENT START -->
 <div id="content" class="site-content">
     <!-- SOUND THEME / HEADER AREA -->
@@ -48,13 +49,20 @@
                 <div class="hidden-xs col-xs-12 col-md-8 col-md-offset-2">
                     <div class="soundtheme-filters">
                         <div class="soundtheme-filter-menu">
-                            <ul>
-                                <li class="filter active" data-filter="all">All</li>
-                                <li class="filter" data-filter=".Musician">Musician</li>
-                                <li class="filter" data-filter=".Songwriter">Songwriter</li>
-                                <li class="filter" data-filter=".Artist">Artist</li>
-
-                            </ul>
+                            
+                                <ul>
+                                    @{
+                                        foreach (var item in Model.Genres)
+                                        {
+                                            @Ajax.ActionLink(item.Data.Name, "Index", new { name = item.Data.Name }, new AjaxOptions()
+                                       {
+                                           HttpMethod = "GET",
+                                           InsertionMode = InsertionMode.Replace,
+                                           UpdateTargetId = "artistModel",
+                                       }, new { @class = "list-group-item" });
+                                        }
+                                    }
+                                </ul>
                             <div class="clearfix"></div>
                         </div>
                     </div>
@@ -72,189 +80,29 @@
         <div class="container">
             <div class="row">
 
-                <div id="container">
+                <div id="artistModel">
+                    @foreach (var artist in Model.Artists)
+                    {
+                        <div class="col-xs-12 col-sm-6  col-md-3  mix Songwriter">
+                            <div class="soundtheme-filter-post">
+                                <div class="soundtheme-blog-list-img">
+                                    <div class="soundtheme-single-gallery">
+                                        <a href="http://pock.be/sound/samuel-smith/">
+                                            <img width="450" height="450" src="http://pock.be/sound/wp-content/uploads/2015/10/37-450x450.jpg" class="attachment-soundtheme-thumb-medium size-soundtheme-thumb-medium wp-post-image" alt="" srcset="http://pock.be/sound/wp-content/uploads/2015/10/37-450x450.jpg 450w, http://pock.be/sound/wp-content/uploads/2015/10/37-150x150.jpg 150w, http://pock.be/sound/wp-content/uploads/2015/10/37-250x250.jpg 250w" sizes="(max-width: 450px) 100vw, 450px"/>
+                                            <div class="soundtheme-hover-play"><i class="fa fa-hand-peace-o"></i>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
 
-
-
-                    <div class="col-xs-12 col-sm-6  col-md-3  mix Songwriter">
-                        <div class="soundtheme-filter-post">
-                            <div class="soundtheme-blog-list-img">
-                                <div class="soundtheme-single-gallery">
-                                    <a href="http://pock.be/sound/samuel-smith/">
-                                        <img width="450" height="450" src="http://pock.be/sound/wp-content/uploads/2015/10/37-450x450.jpg" class="attachment-soundtheme-thumb-medium size-soundtheme-thumb-medium wp-post-image" alt="" srcset="http://pock.be/sound/wp-content/uploads/2015/10/37-450x450.jpg 450w, http://pock.be/sound/wp-content/uploads/2015/10/37-150x150.jpg 150w, http://pock.be/sound/wp-content/uploads/2015/10/37-250x250.jpg 250w" sizes="(max-width: 450px) 100vw, 450px" />									<div class="soundtheme-hover-play"><i class="fa fa-hand-peace-o"></i></div>
-                                    </a>
+                                <div class="soundtheme-filter-posting">
+                                    <h1>
+                                        <a href="http://pock.be/sound/samuel-smith/">@artist.Data.FullName</a>
+                                    </h1>
                                 </div>
                             </div>
-
-                            <div class="soundtheme-filter-posting">
-                                <h1>
-                                    <a href="http://pock.be/sound/samuel-smith/">Samuel Smith</a>
-                                </h1>
-
-                                <h2>
-                                    "Pop Musician"
-                                </h2>
-                            </div>
                         </div>
-                    </div>
-
-                    <div class="col-xs-12 col-sm-6  col-md-3  mix Songwriter">
-                        <div class="soundtheme-filter-post">
-                            <div class="soundtheme-blog-list-img">
-                                <div class="soundtheme-single-gallery">
-                                    <a href="http://pock.be/sound/leonardo-doe-caprio/">
-                                        <img width="450" height="450" src="http://pock.be/sound/wp-content/uploads/2015/10/12-450x450.jpg" class="attachment-soundtheme-thumb-medium size-soundtheme-thumb-medium wp-post-image" alt="" srcset="http://pock.be/sound/wp-content/uploads/2015/10/12-450x450.jpg 450w, http://pock.be/sound/wp-content/uploads/2015/10/12-150x150.jpg 150w, http://pock.be/sound/wp-content/uploads/2015/10/12-250x250.jpg 250w" sizes="(max-width: 450px) 100vw, 450px" />									<div class="soundtheme-hover-play"><i class="fa fa-hand-peace-o"></i></div>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="soundtheme-filter-posting">
-                                <h1>
-                                    <a href="http://pock.be/sound/leonardo-doe-caprio/">Leonardo Doe Caprio</a>
-                                </h1>
-
-                                <h2>
-                                    "Pop Musician"
-                                </h2>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-12 col-sm-6  col-md-3  mix Songwriter">
-                        <div class="soundtheme-filter-post">
-                            <div class="soundtheme-blog-list-img">
-                                <div class="soundtheme-single-gallery">
-                                    <a href="http://pock.be/sound/marie-strazborg/">
-                                        <img width="450" height="450" src="http://pock.be/sound/wp-content/uploads/2015/10/9-450x450.jpg" class="attachment-soundtheme-thumb-medium size-soundtheme-thumb-medium wp-post-image" alt="" srcset="http://pock.be/sound/wp-content/uploads/2015/10/9-450x450.jpg 450w, http://pock.be/sound/wp-content/uploads/2015/10/9-150x150.jpg 150w, http://pock.be/sound/wp-content/uploads/2015/10/9-250x250.jpg 250w" sizes="(max-width: 450px) 100vw, 450px" />									<div class="soundtheme-hover-play"><i class="fa fa-hand-peace-o"></i></div>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="soundtheme-filter-posting">
-                                <h1>
-                                    <a href="http://pock.be/sound/marie-strazborg/">Marie Strazborg</a>
-                                </h1>
-
-                                <h2>
-                                    "Pop Musician"
-                                </h2>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-12 col-sm-6  col-md-3  mix Musician">
-                        <div class="soundtheme-filter-post">
-                            <div class="soundtheme-blog-list-img">
-                                <div class="soundtheme-single-gallery">
-                                    <a href="http://pock.be/sound/robert-doe-smith/">
-                                        <img width="450" height="450" src="http://pock.be/sound/wp-content/uploads/2015/10/33-450x450.jpg" class="attachment-soundtheme-thumb-medium size-soundtheme-thumb-medium wp-post-image" alt="" srcset="http://pock.be/sound/wp-content/uploads/2015/10/33-450x450.jpg 450w, http://pock.be/sound/wp-content/uploads/2015/10/33-150x150.jpg 150w, http://pock.be/sound/wp-content/uploads/2015/10/33-250x250.jpg 250w" sizes="(max-width: 450px) 100vw, 450px" />									<div class="soundtheme-hover-play"><i class="fa fa-hand-peace-o"></i></div>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="soundtheme-filter-posting">
-                                <h1>
-                                    <a href="http://pock.be/sound/robert-doe-smith/">Robert Doe Smith</a>
-                                </h1>
-
-                                <h2>
-                                    "Rock Musician"
-                                </h2>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-12 col-sm-6  col-md-3  mix Songwriter">
-                        <div class="soundtheme-filter-post">
-                            <div class="soundtheme-blog-list-img">
-                                <div class="soundtheme-single-gallery">
-                                    <a href="http://pock.be/sound/elizabeth-smith/">
-                                        <img width="450" height="450" src="http://pock.be/sound/wp-content/uploads/2015/10/photo-1436190807865-2e156d40f1a2-450x450.jpg" class="attachment-soundtheme-thumb-medium size-soundtheme-thumb-medium wp-post-image" alt="" srcset="http://pock.be/sound/wp-content/uploads/2015/10/photo-1436190807865-2e156d40f1a2-450x450.jpg 450w, http://pock.be/sound/wp-content/uploads/2015/10/photo-1436190807865-2e156d40f1a2-150x150.jpg 150w, http://pock.be/sound/wp-content/uploads/2015/10/photo-1436190807865-2e156d40f1a2-250x250.jpg 250w" sizes="(max-width: 450px) 100vw, 450px" />									<div class="soundtheme-hover-play"><i class="fa fa-hand-peace-o"></i></div>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="soundtheme-filter-posting">
-                                <h1>
-                                    <a href="http://pock.be/sound/elizabeth-smith/">Elizabeth Smith</a>
-                                </h1>
-
-                                <h2>
-                                    "Jazz Musician"
-                                </h2>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-12 col-sm-6  col-md-3  mix Artist">
-                        <div class="soundtheme-filter-post">
-                            <div class="soundtheme-blog-list-img">
-                                <div class="soundtheme-single-gallery">
-                                    <a href="http://pock.be/sound/adam-patrowich/">
-                                        <img width="450" height="450" src="http://pock.be/sound/wp-content/uploads/2015/10/241-450x450.jpg" class="attachment-soundtheme-thumb-medium size-soundtheme-thumb-medium wp-post-image" alt="" srcset="http://pock.be/sound/wp-content/uploads/2015/10/241-450x450.jpg 450w, http://pock.be/sound/wp-content/uploads/2015/10/241-150x150.jpg 150w, http://pock.be/sound/wp-content/uploads/2015/10/241-250x250.jpg 250w" sizes="(max-width: 450px) 100vw, 450px" />									<div class="soundtheme-hover-play"><i class="fa fa-hand-peace-o"></i></div>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="soundtheme-filter-posting">
-                                <h1>
-                                    <a href="http://pock.be/sound/adam-patrowich/">Adam Patrowich</a>
-                                </h1>
-
-                                <h2>
-                                    "Jazz Musician"
-                                </h2>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-12 col-sm-6  col-md-3  mix Songwriter">
-                        <div class="soundtheme-filter-post">
-                            <div class="soundtheme-blog-list-img">
-                                <div class="soundtheme-single-gallery">
-                                    <a href="http://pock.be/sound/julia-spartow/">
-                                        <img width="450" height="450" src="http://pock.be/sound/wp-content/uploads/2015/10/4-450x450.jpg" class="attachment-soundtheme-thumb-medium size-soundtheme-thumb-medium wp-post-image" alt="" srcset="http://pock.be/sound/wp-content/uploads/2015/10/4-450x450.jpg 450w, http://pock.be/sound/wp-content/uploads/2015/10/4-150x150.jpg 150w, http://pock.be/sound/wp-content/uploads/2015/10/4-250x250.jpg 250w" sizes="(max-width: 450px) 100vw, 450px" />									<div class="soundtheme-hover-play"><i class="fa fa-hand-peace-o"></i></div>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="soundtheme-filter-posting">
-                                <h1>
-                                    <a href="http://pock.be/sound/julia-spartow/">Julia Spartow</a>
-                                </h1>
-
-                                <h2>
-                                    "Jazz Musician"
-                                </h2>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-12 col-sm-6  col-md-3  mix Musician">
-                        <div class="soundtheme-filter-post">
-                            <div class="soundtheme-blog-list-img">
-                                <div class="soundtheme-single-gallery">
-                                    <a href="http://pock.be/sound/micheal-smith/">
-                                        <img width="450" height="450" src="http://pock.be/sound/wp-content/uploads/2015/10/20-450x450.jpg" class="attachment-soundtheme-thumb-medium size-soundtheme-thumb-medium wp-post-image" alt="" srcset="http://pock.be/sound/wp-content/uploads/2015/10/20-450x450.jpg 450w, http://pock.be/sound/wp-content/uploads/2015/10/20-150x150.jpg 150w, http://pock.be/sound/wp-content/uploads/2015/10/20-250x250.jpg 250w" sizes="(max-width: 450px) 100vw, 450px" />									<div class="soundtheme-hover-play"><i class="fa fa-hand-peace-o"></i></div>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="soundtheme-filter-posting">
-                                <h1>
-                                    <a href="http://pock.be/sound/micheal-smith/">Micheal Smith</a>
-                                </h1>
-
-                                <h2>
-                                    "Jazz Musician"
-                                </h2>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-
+                    }
                 </div>
             </div>
         </div>

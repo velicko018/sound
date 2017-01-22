@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using MusicHouse.App_Start;
 using MusicHouse.Models;
+using MusicHouse.ViewModels;
 using Neo4jClient;
 using Newtonsoft.Json;
 
@@ -13,6 +14,59 @@ namespace MusicHouse.Controllers
 {
     public class ArtistController : Controller
     {
+        public ActionResult Index(string name)
+        {
+            try
+            {
+                IEnumerable<Node<Artist>> artists = new List<Node<Artist>>();
+                if (name != null && name != "")
+                {
+                    artists = WebApiConfig.GraphClient.Cypher
+                     .Match("(a:Artist), (b:Genre)")
+                     .Where("(a)-[:HAS_GENRE]->(b) AND b.name = {name}")
+                     .WithParam("name", name)
+                     .Return(a => a.As<Node<Artist>>())
+                     .Results;
+
+                }
+                else
+                {
+                    artists = WebApiConfig.GraphClient.Cypher
+                    .Match("(a:Artist)")
+                    .Return(a => a.As<Node<Artist>>())
+                    .Results;
+                }
+
+                var genres = WebApiConfig.GraphClient.Cypher
+                    .Match("(a:Genre)")
+                    .Return(a => a.As<Node<Genre>>())
+                    .Results;
+
+                ArtistGenreViewModel artistVM = new ArtistGenreViewModel
+                {
+                    Artists = artists,
+                    Genres = genres
+                };
+                if (Request.IsAjaxRequest())
+                {
+                    return PartialView("Partial/ArtistList", artistVM);
+                }
+                return View("Index", artistVM);
+            }
+            catch (Exception e)
+            {
+                if (Request.IsAjaxRequest())
+                {
+                    Session["Exception"] = e;
+                    return PartialView("Error");
+                }
+                Session["Exception"] = e;
+                return View("Error");
+            }
+
+        }
+    
+
         // GET: Artist
         public ActionResult List()
         {

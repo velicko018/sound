@@ -185,6 +185,7 @@
     <Compile Include="Models\Song.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\AlbumSongsGroupViewModel.cs" />
+    <Compile Include="ViewModels\ArtistGenreViewModel.cs" />
     <Compile Include="ViewModels\GroupAlbumViewModel.cs" />
     <Compile Include="ViewModels\GroupViewModel.cs" />
   </ItemGroup>
@@ -307,6 +308,7 @@
     <Content Include="Views\Artist\Index.cshtml" />
     <Content Include="Views\Group\Partial\GroupList.cshtml" />
     <Content Include="Views\Album\Index.cshtml" />
+    <Content Include="Views\Artist\Partial\ArtistList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

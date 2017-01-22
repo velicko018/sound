@@ -1,0 +1,28 @@
+﻿@model MusicHouse.ViewModels.ArtistGenreViewModel
+
+<div id="artistModel">
+    @foreach (var artist in Model.Artists)
+    {
+        <div class="col-xs-12 col-sm-6  col-md-3  mix Songwriter">
+            <div class="soundtheme-filter-post">
+                <div class="soundtheme-blog-list-img">
+                    <div class="soundtheme-single-gallery">
+                        <a href="http://pock.be/sound/samuel-smith/">
+                            <img width="450" height="450" src="http://pock.be/sound/wp-content/uploads/2015/10/37-450x450.jpg" class="attachment-soundtheme-thumb-medium size-soundtheme-thumb-medium wp-post-image" alt="" srcset="http://pock.be/sound/wp-content/uploads/2015/10/37-450x450.jpg 450w, http://pock.be/sound/wp-content/uploads/2015/10/37-150x150.jpg 150w, http://pock.be/sound/wp-content/uploads/2015/10/37-250x250.jpg 250w" sizes="(max-width: 450px) 100vw, 450px" />
+                            <div class="soundtheme-hover-play">
+                                <i class="fa fa-hand-peace-o"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="soundtheme-filter-posting">
+                    <h1>
+                        <a href="http://pock.be/sound/samuel-smith/">@artist.Data.FullName</a>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
