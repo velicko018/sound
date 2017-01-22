@@ -95,26 +95,34 @@ namespace MusicHouse.Controllers
         {
             try
             {
-                var group = WebApiConfig.GraphClient.Cypher
-                .Match("(a:Group)")
+                var album = WebApiConfig.GraphClient.Cypher
+                .Match("(a:Album)")
                 .Where($"ID(a) = {id}")
-                .Return(a => a.As<Node<Group>>())
+                .Return(a => a.As<Node<Album>>())
                 .Limit(1)
                 .Results;
 
-                var albums = WebApiConfig.GraphClient.Cypher
+                var group = WebApiConfig.GraphClient.Cypher
                     .Match("(a:Group), (b:Album)")
                     .Where("(a)-[:HAVE_ALBUM]->(b) AND ID(a) = {id}")
                     .WithParam("id", id)
-                    .Return(b => b.As<Node<Album>>())
+                    .Return(a => a.As<Node<Group>>())
                     .Results;
 
-                GroupAlbumViewModel groupAlbumVM = new GroupAlbumViewModel
+                var songs = WebApiConfig.GraphClient.Cypher
+                    .Match("(s:Song), (b:Album)")
+                    .Where("(b)-[:HAS_SONG]->(s) AND ID(a) = {id}")
+                    .WithParam("id", id)
+                    .Return(s => s.As<Song>())
+                    .Results;
+
+                AlbumSongsGroupViewModel groupAlbumSongVM = new AlbumSongsGroupViewModel
                 {
                     Group = group.First(),
-                    Albums = albums
+                    Album = album.First(),
+                    Songs = songs
                 };
-                return View("Details", groupAlbumVM);
+                return View("Details", groupAlbumSongVM);
             }
             catch (Exception e)
             {
