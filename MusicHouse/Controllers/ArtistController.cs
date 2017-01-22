@@ -105,13 +105,27 @@ namespace MusicHouse.Controllers
             try
             {
                 var artist = WebApiConfig.GraphClient.Cypher
-                .Match("(a:Artist)")
-                .Where($"ID(a) = {id}")
-                .Return(a => a.As<Node<Artist>>())
-                .Limit(1)
-                .Results;
+               .Match("(a:Artist)")
+               .Where($"ID(a) = {id}")
+               .Return(a => a.As<Node<Artist>>())
+               .Limit(1)
+               .Results;
 
-                return View("Details", artist.First());
+                var albums = WebApiConfig.GraphClient.Cypher
+                    .Match("(a:Artist), (b:Album)")
+                    .Where("(a)-[:HAVE_ALBUM]->(b) AND ID(a) = {id}")
+                    .WithParam("id", id)
+                    .Return(b => b.As<Node<Album>>())
+                    .Results;
+
+
+
+                ArtistAlbumsViewModel groupAlbumVM = new ArtistAlbumsViewModel
+                {
+                    Artist = artist.First(),
+                    Albums = albums,
+                };
+                return View("Details", groupAlbumVM);
             }
             catch (Exception e)
             {

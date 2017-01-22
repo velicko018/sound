@@ -186,6 +186,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\AlbumSongsGroupViewModel.cs" />
     <Compile Include="ViewModels\ArtistGenreViewModel.cs" />
+    <Compile Include="ViewModels\ArtistSongsViewModel.cs" />
     <Compile Include="ViewModels\GroupAlbumViewModel.cs" />
     <Compile Include="ViewModels\GroupViewModel.cs" />
   </ItemGroup>
