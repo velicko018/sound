@@ -159,12 +159,7 @@
                                 @foreach (var song in Model.Songs)
                                 {
                                     <li>
-                                        <!-- SOUND THEME / TRACK -->
-                                        <a class="fap-single-track" title="@song.SongName">
-                                            @song.SongName
-                                        </a>
-
-                                        <!-- SOUND THEME / DOWNLOAD -->
+                                        @Ajax.ActionLink(@song.SongName, "WriteSongToRedis","Song", new { songName = song.SongName, writer = song.Writer, number = song.Number, length = song.Length }, new AjaxOptions {HttpMethod="GET" },  new { @class="fap-single-track" })
                                         <div class="soundtheme-single-download">
                                             <i class="fa fa-music"></i>
                                         </div>

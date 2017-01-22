@@ -24,21 +24,8 @@ namespace MusicHouse.Controllersss
                 return View();
 
             }
+
             LeaderBoard l = new LeaderBoard();
-            l.SetSongClicks("Mala devojka", "Tozovac", "5:20", 3);
-            l.SetSongClicks("Mala devojka", "Tozovac", "5:20", 3);
-            l.SetSongClicks("Ide Maca Oko Tebe", "Decica", "5:20", 3);
-            l.SetSongClicks("Ide Maca Oko Tebe", "Decica", "5:20", 3);
-            l.SetSongClicks("Ide Maca Oko Tebe", "Decica", "5:20", 3);
-            l.SetSongClicks("Zuta Kuca", "Petar", "5:20", 3);
-            l.SetSongClicks("Zuta Kuca", "Petar", "5:20", 3);
-            l.SetSongClicks("Zuta Kuca", "Petar", "5:20", 3);
-            l.SetSongClicks("Zuta Kuca", "Petar", "5:20", 3);
-            l.SetSongClicks("Ide Mile", "Mile od Pruge", "5:20",3);
-            l.SetSongClicks("Ide Mile", "Mile od Pruge", "5:20", 3);
-            l.SetSongClicks("Ide Mile", "Mile od Pruge", "5:20", 3);
-            l.SetSongClicks("Ide Mile", "Mile od Pruge", "5:20", 3);
-            l.SetSongClicks("Ide Mile", "Mile od Pruge", "5:20", 3);
             var topsongs = l.GetTopSongs(20);
             var reacentsongs = l.GetRecentSongs(20).DistinctBy(x => x.SongName).ToList();
             IList<Song> SongTopList = new List<Song>();
@@ -54,7 +41,7 @@ namespace MusicHouse.Controllersss
                 SongReacentList.Add(song);
             }
 
-            return View("Error",SongTopList);
+            return View("Error");
         }
 
         public ActionResult About()

@@ -23,12 +23,15 @@ namespace RedisDataLayer
 
         public DateTime? DeathDate { get; set; }
 
-        public Artists(string FirstName, string MiddleName, string LastName, string ArtistName)
+        public Artists(string FirstName, string MiddleName, string LastName, string ArtistName,DateTime birth,string ances,DateTime dth)
         {
             this.FirstName = FirstName;
             this.MiddleName = MiddleName;
             this.LastName = LastName;
             this.ArtistName = ArtistName;
+            this.BirthDate = birth;
+            this.Ancestry = ances;
+            this.DeathDate = dth;
         }
 
         public Artists()
