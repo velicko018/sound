@@ -188,6 +188,14 @@ namespace MusicHouse.Controllers
               .Results;
             Session["Album"] = Albums;
 
+            var genres = WebApiConfig.GraphClient.Cypher
+              .Match("(g:Genre),(a:Artist{artistName:{artistName}})")
+              .Where("NOT (a)-[:HAS_GENRE]->(g)")
+              .WithParam("artistName", artistName)
+              .Return(g => g.As<Node<Genre>>())
+              .Results;
+            Session["Genre"] = genres;
+
 
             #endregion
 
@@ -205,6 +213,7 @@ namespace MusicHouse.Controllers
                 var songToAdd = form.Get("Songs");
                 var awardToAdd = form.Get("Awards");
                 var albumToAdd = form.Get("Albums");
+                var genresToAdd = form.Get("Genres");
 
                 WebApiConfig.GraphClient.Cypher
                     .Match("(a:Artist)")
@@ -215,7 +224,7 @@ namespace MusicHouse.Controllers
                 if (instrumentToAdd != String.Empty && instrumentToAdd!=null)
                 {
                     WebApiConfig.GraphClient.Cypher
-                       .Match("(s:Artist)", "(g:Genre)")
+                       .Match("(s:Artist)", "(g:Instrument)")
                        .Where($"ID(s) = {id}")
                        .AndWhere($"ID(g)={instrumentToAdd}")
                        .Create("(s)-[r:HAS_INSTRUMENT]->(g)")
@@ -246,6 +255,15 @@ namespace MusicHouse.Controllers
                        .Where($"ID(s) = {id}")
                        .AndWhere($"ID(g)={albumToAdd}")
                        .Create("(s)-[r:HAVE_ALBUM]->(g)")
+                       .ExecuteWithoutResults();
+                }
+                if(genresToAdd!=String.Empty && genresToAdd!=null)
+                {
+                    WebApiConfig.GraphClient.Cypher
+                       .Match("(s:Artist)", "(g:Genre)")
+                       .Where($"ID(s) = {id}")
+                       .AndWhere($"ID(g)={genresToAdd}")
+                       .Create("(s)-[r:HAS_GENRE]->(g)")
                        .ExecuteWithoutResults();
                 }
 

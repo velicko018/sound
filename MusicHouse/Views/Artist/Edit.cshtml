@@ -12,6 +12,7 @@
     List<SelectListItem> InstrumentItems = new List<SelectListItem>();
     List<SelectListItem> AwardItems = new List<SelectListItem>();
     List<SelectListItem> AlbumItems = new List<SelectListItem>();
+    List<SelectListItem> GenreItems = new List<SelectListItem>();
 
     if (Session["Song"] != null)
     {
@@ -45,6 +46,15 @@
         {
             AlbumItems.Add(new SelectListItem { Text = item.Data.AlbumName, Value = item.Reference.Id.ToString() });
         }
+    }
+    if (Session["Genre"] != null)
+    {
+        IEnumerable<Neo4jClient.Node<MusicHouse.Models.Genre>> genres = Session["Genre"] as IEnumerable<Neo4jClient.Node<MusicHouse.Models.Genre>>;
+        foreach (var item in genres)
+        {
+            GenreItems.Add(new SelectListItem { Text = item.Data.Name, Value = item.Reference.Id.ToString() });
+        }
+
     }
 
 }
@@ -153,6 +163,15 @@
                 <label class="control-label col-md-2">Add Award</label>
                 <div class="col-md-10">
                     @Html.DropDownList("Awards", AwardItems, "", new { @class = "form-control" })
+                </div>
+            </div>
+        }
+        @if (GenreItems.Count != 0)
+        {
+            <div class="form-group">
+                <label class="control-label col-md-2">Add Genre</label>
+                <div class="col-md-10">
+                    @Html.DropDownList("Genres", GenreItems, "", new { @class = "form-control" })
                 </div>
             </div>
         }
