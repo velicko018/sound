@@ -26,15 +26,20 @@ namespace MusicHouse.Controllersss
             }
 
             LeaderBoard l = new LeaderBoard();
-            var topsongs = l.GetTopSongs(20);
-            var reacentsongs = l.GetRecentSongs(20).DistinctBy(x => x.SongName).ToList();
+
+            //top 
             IList<Song> SongTopList = new List<Song>();
-            IList<Song> SongReacentList = new List<Song>();
+            var topsongs = l.GetTopSongs(20);
+
             foreach (var item in topsongs)
             {
              Song song = new Song(item.SongName,item.Writer,item.Length,item.Number);
                 SongTopList.Add(song);
             }
+
+            //reacent
+            var reacentsongs = l.GetRecentSongs(20).DistinctBy(x => x.SongName).ToList();
+            IList<Song> SongReacentList = new List<Song>();
             foreach (var item in reacentsongs)
             {
                 Song song = new Song(item.SongName, item.Writer, item.Length, item.Number);

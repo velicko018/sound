@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Ajax.Utilities;
 
 
 namespace RedisDataLayer
@@ -77,6 +78,7 @@ namespace RedisDataLayer
             Artists artist = new Artists(FirstName, MiddleName, LastName, ArtistName,birth,ances,dth,bio);
 
             redis.PushItemToList("artists" + id, artist.ToJsonString());
+            redis.PushItemToList("artists", artist.ToJsonString());
             Artists.Add(artist);
 
             return redis.Incr("clicks" + id + "artists");
@@ -87,6 +89,7 @@ namespace RedisDataLayer
             Groups group = new Groups(GroupName, Origin, Website, NumberOfMembers,establ,decay);
 
             Groups.Add(group);
+            redis.PushItemToList("groups", group.ToJsonString());
             redis.PushItemToList("groups" + id, group.ToJsonString());
 
             return redis.Incr("clicks" + id + "groups");
@@ -99,6 +102,7 @@ namespace RedisDataLayer
 
             Albums.Add(album);
             redis.PushItemToList("albums" + id, album.ToJsonString());
+            redis.PushItemToList("albums", album.ToJsonString());
 
             return redis.Incr("clicks" + id+ "albums");
         }
@@ -119,10 +123,55 @@ namespace RedisDataLayer
         {
             return redis.Get<long>("clicks" + key + "artists");
         }
+        public List<Songs> GetAllSongsFromRedis()
+        {
+            List<Songs> listofSongs = new List<Songs>();
+            foreach (string jsonVisitorString in redis.GetAllItemsFromList("songs")) 
+            {
+                Songs song = (Songs)JsonSerializer.DeserializeFromString(jsonVisitorString, typeof(Songs));
+                listofSongs.Add(song);
+            }
+            var p = listofSongs.DistinctBy(x => x.SongName).ToList();
+            return p;
+        }
+        public List<Groups> GetAllGroupsFromRedis()
+        {
+            List<Groups> listofgroups = new List<Groups>();
+            foreach (string jsonVisitorString in redis.GetAllItemsFromList("groups"))
+            {
+                Groups groups = (Groups)JsonSerializer.DeserializeFromString(jsonVisitorString, typeof(Groups));
+                listofgroups.Add(groups);
+            }
+            var p = listofgroups.DistinctBy(x => x.GroupName).ToList();
+            return p;
+        }
+        public List<Artists> GetAllArtistsFromRedis()
+        {
+            List<Artists> listofArtists = new List<Artists>();
+            foreach (string jsonVisitorString in redis.GetAllItemsFromList("artists"))
+            {
+                Artists song = (Artists)JsonSerializer.DeserializeFromString(jsonVisitorString, typeof(Artists));
+                listofArtists.Add(song);
+            }
+            var p = listofArtists.DistinctBy(x => x.ArtistName).ToList();
+            return p;
+        }
+        public List<Albums> GetAllAlbumsFromRedis()
+        {
+            List<Albums> listofAlbums = new List<Albums>();
+            foreach (string jsonVisitorString in redis.GetAllItemsFromList("albums"))
+            {
+                Albums song = (Albums)JsonSerializer.DeserializeFromString(jsonVisitorString, typeof(Albums));
+                listofAlbums.Add(song);
+            }
+            var p = listofAlbums.DistinctBy(x => x.AlbumName).ToList();
+            return p;
+        }
 
         public List<Songs> GetTopSongs(int ofTop)
         {
             Songs tmp = new Songs();
+            this.Songs = GetAllSongsFromRedis();
 
            for (int i=0; i<this.Songs.Count-1; i++)
             {
@@ -140,7 +189,7 @@ namespace RedisDataLayer
         public List<Albums> GetTopAlbums(int ofTop)
         {
             Albums tmp = new Albums();
-
+            this.Albums = GetAllAlbumsFromRedis();
             for (int i = 0; i < this.Albums.Count - 1; i++)
             {
                 for (int j = i + 1; j < Albums.Count; j++)
@@ -157,7 +206,7 @@ namespace RedisDataLayer
         public List<Artists> GetTopArtists(int ofTop)
         {
             Artists tmp = new Artists();
-
+            this.Artists = GetAllArtistsFromRedis();
             for (int i = 0; i < this.Artists.Count - 1; i++)
             {
                 for (int j = i + 1; j < Artists.Count; j++)
@@ -174,7 +223,7 @@ namespace RedisDataLayer
         public List<Groups> GetTopGroups(int ofTop)
         {
             Groups tmp = new Groups();
-
+            this.Groups = GetAllGroupsFromRedis();
             for (int i = 0; i < this.Groups.Count - 1; i++)
             {
                 for (int j = i + 1; j < Groups.Count; j++)
