@@ -66,11 +66,11 @@
                                     foreach (var item in Model.Genres)
                                     {
                                         @Ajax.ActionLink(item.Data.Name, "Index", new { name = item.Data.Name }, new AjaxOptions()
-                                        {
-                                            HttpMethod = "GET",
-                                            InsertionMode = InsertionMode.Replace,
-                                            UpdateTargetId = "artistModel",
-                                        }, new { @class = "list-group-item" });
+                                   {
+                                       HttpMethod = "GET",
+                                       InsertionMode = InsertionMode.Replace,
+                                       UpdateTargetId = "artistModel",
+                                   }, new { @class = "filter btn btn-primary", @style = "margin: 5px;" });
                                     }
                                 }
                             </ul>
