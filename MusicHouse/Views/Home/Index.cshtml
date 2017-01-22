@@ -109,8 +109,7 @@
         <div class="container">
             <div class="col-md-12">
                 <div class="soundtheme-mod-title  soundtheme-mod-title-dark ">
-                    <h1>World Event Tour</h1>
-                    <h2>Latest Event List</h2>
+                    <h1>Top Groups</h1>
                 </div>
             </div>
 
@@ -118,209 +117,61 @@
 
             <div class="soundtheme-mod-featcon-two">
                 <ul class="soundtheme-event-ul">
-
-
-                    <li>
-                        <div class="row">
-                            <div class="hidden-xs col-sm-2 col-md-1">
-                                <div class="soundtheme-single-gallery">
-                                    <a href="http://pock.be/sound/camp-tour/">
-                                        <img src="http://pock.be/sound/wp-content/uploads/2015/10/00-250x250.jpg" class="attachment-soundtheme-thumb-small size-soundtheme-thumb-small wp-post-image" alt="" srcset="http://pock.be/sound/wp-content/uploads/2015/10/00-250x250.jpg 250w, http://pock.be/sound/wp-content/uploads/2015/10/00-150x150.jpg 150w, http://pock.be/sound/wp-content/uploads/2015/10/00-450x450.jpg 450w" sizes="(max-width: 250px) 100vw, 250px" width="250" height="250">
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="hidden-xs col-sm-2 col-md-1">
-                                <div class="soundtheme-mod-dates  soundtheme-mod-detail-dark ">
-                                    <h1>22</h1>
-                                    <h2>Apr 2016</h2>
-                                </div>
-                            </div>
-
-                            <div class="col-xs-12 col-sm-3 col-md-6 soundtheme-event-title">
-                                <div class="soundtheme-mod-detail  soundtheme-mod-detail-dark ">
-                                    <h1><a href="http://pock.be/sound/camp-tour/">Camp Tour</a></h1>
-
-                                    <h2>Los Angeles, CA, United States </h2>
-                                </div>
-                            </div>
-
-                            <div class="hidden-xs col-sm-2 col-md-1 soundtheme-event-price">
-                                <div class="soundtheme-mod-detail  soundtheme-mod-detail-dark ">
-                                    <div class="soundtheme-mod-dates">
-                                        <h1>$19</h1>
-                                        <h2>Price</h2>
+                    @foreach (var item in Model.Groups)
+                    {
+                        <li>
+                            <div class="row">
+                                <div class="hidden-xs col-sm-2 col-md-1">
+                                    <div class="soundtheme-single-gallery">
+                                        <a href="">
+                                            <img src="http://pock.be/sound/wp-content/uploads/2015/10/00-250x250.jpg" class="attachment-soundtheme-thumb-small size-soundtheme-thumb-small wp-post-image" alt="" srcset="http://pock.be/sound/wp-content/uploads/2015/10/00-250x250.jpg 250w, http://pock.be/sound/wp-content/uploads/2015/10/00-150x150.jpg 150w, http://pock.be/sound/wp-content/uploads/2015/10/00-450x450.jpg 450w" sizes="(max-width: 250px) 100vw, 250px" width="250" height="250">
+                                        </a>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="hidden-xs hidden-sm col-md-1">
-                            </div>
-
-                            <div class="hidden-xs col-sm-3 col-md-2">
-                                <div class="soundtheme-event-btn">
-                                    <a href="http://pock.be/sound/camp-tour/" class="btn btn-block btn-lg btn-success">Buy Ticket</a>
-                                </div>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </li>
-
-
-
-                    <li>
-                        <div class="row">
-                            <div class="hidden-xs col-sm-2 col-md-1">
-                                <div class="soundtheme-single-gallery">
-                                    <a href="http://pock.be/sound/mexico-carnival/">
-                                        <img src="http://pock.be/sound/wp-content/uploads/2015/10/35-250x250.jpg" class="attachment-soundtheme-thumb-small size-soundtheme-thumb-small wp-post-image" alt="" srcset="http://pock.be/sound/wp-content/uploads/2015/10/35-250x250.jpg 250w, http://pock.be/sound/wp-content/uploads/2015/10/35-150x150.jpg 150w, http://pock.be/sound/wp-content/uploads/2015/10/35-450x450.jpg 450w" sizes="(max-width: 250px) 100vw, 250px" width="250" height="250">
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="hidden-xs col-sm-2 col-md-1">
-                                <div class="soundtheme-mod-dates  soundtheme-mod-detail-dark ">
-                                    <h1>13</h1>
-                                    <h2>Feb 2016</h2>
-                                </div>
-                            </div>
-
-                            <div class="col-xs-12 col-sm-3 col-md-6 soundtheme-event-title">
-                                <div class="soundtheme-mod-detail  soundtheme-mod-detail-dark ">
-                                    <h1><a href="http://pock.be/sound/mexico-carnival/">Mexico Carnival</a></h1>
-
-                                    <h2>Mexico City, Mexico </h2>
-                                </div>
-                            </div>
-
-                            <div class="hidden-xs col-sm-2 col-md-1 soundtheme-event-price">
-                                <div class="soundtheme-mod-detail  soundtheme-mod-detail-dark ">
-                                    <div class="soundtheme-mod-dates">
-                                        <h1>$49</h1>
-                                        <h2>Price</h2>
+                                <div class="hidden-xs col-sm-2 col-md-1">
+                                    <div class="soundtheme-mod-dates  soundtheme-mod-detail-dark ">
+                                        <h1>@item.Established.Year</h1>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="hidden-xs hidden-sm col-md-1">
-                            </div>
+                                <div class="col-xs-12 col-sm-3 col-md-6 soundtheme-event-title">
+                                    <div class="soundtheme-mod-detail  soundtheme-mod-detail-dark ">
+                                        <h1><a href="#">@item.GroupName</a>
+                                        </h1>
 
-                            <div class="hidden-xs col-sm-3 col-md-2">
-                                <div class="soundtheme-event-btn">
-                                    <a href="http://pock.be/sound/mexico-carnival/" class="btn btn-block btn-lg btn-success">Cancelled</a>
-                                </div>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </li>
-
-
-
-                    <li>
-                        <div class="row">
-                            <div class="hidden-xs col-sm-2 col-md-1">
-                                <div class="soundtheme-single-gallery">
-                                    <a href="http://pock.be/sound/new-year-party/">
-                                        <img src="http://pock.be/sound/wp-content/uploads/2015/10/41-250x250.jpg" class="attachment-soundtheme-thumb-small size-soundtheme-thumb-small wp-post-image" alt="" srcset="http://pock.be/sound/wp-content/uploads/2015/10/41-250x250.jpg 250w, http://pock.be/sound/wp-content/uploads/2015/10/41-150x150.jpg 150w, http://pock.be/sound/wp-content/uploads/2015/10/41-450x450.jpg 450w" sizes="(max-width: 250px) 100vw, 250px" width="250" height="250">
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="hidden-xs col-sm-2 col-md-1">
-                                <div class="soundtheme-mod-dates  soundtheme-mod-detail-dark ">
-                                    <h1>16</h1>
-                                    <h2>May 2016</h2>
-                                </div>
-                            </div>
-
-                            <div class="col-xs-12 col-sm-3 col-md-6 soundtheme-event-title">
-                                <div class="soundtheme-mod-detail  soundtheme-mod-detail-dark ">
-                                    <h1><a href="http://pock.be/sound/new-year-party/">New Year Party</a></h1>
-
-                                    <h2>Washington Square Park, New York, NY, United States </h2>
-                                </div>
-                            </div>
-
-                            <div class="hidden-xs col-sm-2 col-md-1 soundtheme-event-price">
-                                <div class="soundtheme-mod-detail  soundtheme-mod-detail-dark ">
-                                    <div class="soundtheme-mod-dates">
-                                        <h1>$89</h1>
-                                        <h2>Price</h2>
+                                        <h2>@item.Origin</h2>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="hidden-xs hidden-sm col-md-1">
-                            </div>
-
-                            <div class="hidden-xs col-sm-3 col-md-2">
-                                <div class="soundtheme-event-btn">
-                                    <a href="http://pock.be/sound/new-year-party/" class="btn btn-block btn-lg btn-success">Sold Out</a>
-                                </div>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </li>
-
-
-
-                    <li>
-                        <div class="row">
-                            <div class="hidden-xs col-sm-2 col-md-1">
-                                <div class="soundtheme-single-gallery">
-                                    <a href="http://pock.be/sound/tomato-carnival/">
-                                        <img src="http://pock.be/sound/wp-content/uploads/2015/10/2-250x250.jpg" class="attachment-soundtheme-thumb-small size-soundtheme-thumb-small wp-post-image" alt="" srcset="http://pock.be/sound/wp-content/uploads/2015/10/2-250x250.jpg 250w, http://pock.be/sound/wp-content/uploads/2015/10/2-150x150.jpg 150w, http://pock.be/sound/wp-content/uploads/2015/10/2-450x450.jpg 450w" sizes="(max-width: 250px) 100vw, 250px" width="250" height="250">
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="hidden-xs col-sm-2 col-md-1">
-                                <div class="soundtheme-mod-dates  soundtheme-mod-detail-dark ">
-                                    <h1>19</h1>
-                                    <h2>Jul 2016</h2>
-                                </div>
-                            </div>
-
-                            <div class="col-xs-12 col-sm-3 col-md-6 soundtheme-event-title">
-                                <div class="soundtheme-mod-detail  soundtheme-mod-detail-dark ">
-                                    <h1><a href="http://pock.be/sound/tomato-carnival/">Tomato Carnival</a></h1>
-
-                                    <h2>Rio de Janeiro - State of Rio de Janeiro, Brazil </h2>
-                                </div>
-                            </div>
-
-                            <div class="hidden-xs col-sm-2 col-md-1 soundtheme-event-price">
-                                <div class="soundtheme-mod-detail  soundtheme-mod-detail-dark ">
-                                    <div class="soundtheme-mod-dates">
-                                        <h1>$49</h1>
-                                        <h2>Price</h2>
+                                <div class="hidden-xs col-sm-2 col-md-1 soundtheme-event-price">
+                                    <div class="soundtheme-mod-detail  soundtheme-mod-detail-dark ">
+                                        <div class="soundtheme-mod-dates">
+                                            <h1>@item.NumberOfMembers</h1>
+                                            <h2>Members</h2>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="hidden-xs hidden-sm col-md-1">
-                            </div>
-
-                            <div class="hidden-xs col-sm-3 col-md-2">
-                                <div class="soundtheme-event-btn">
-                                    <a href="http://pock.be/sound/tomato-carnival/" class="btn btn-block btn-lg btn-success">Cancelled</a>
+                                <div class="hidden-xs hidden-sm col-md-1">
                                 </div>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </li>
 
+                                <div class="hidden-xs col-sm-3 col-md-2">
+                                    <div class="soundtheme-event-btn">
+                                        <a href="@item.Website" class="btn btn-block btn-lg btn-success">Visit site</a>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </li>
+                    }
                 </ul>
             </div>
             <div class="clearfix"></div>
 
             <div class="col-md-4">
             </div>
-            <div class="col-md-4">
-                <div class="soundtheme-mod-bigbutton">
-                    <a href="http://www.pock.site/sound/event-page-four-grid/" class="btn btn-block btn-lg  btn-success ">View All Events</a>
-                </div>
-            </div>
+            
             <div class="col-md-4">
             </div>
 
@@ -329,145 +180,42 @@
     </div>
 
     <!-- SOUND THEME / PLAYLIST -->
-    <!-- SOUND THEME / FEATURED SLIDER -->
 
     <div class="container-fluid soundtheme-mod-tracklist soundtheme-container soundtheme-mod-dark ">
         <div class="container">
             <div class="col-md-12">
                 <div class="soundtheme-mod-title  soundtheme-mod-title-dark ">
-                    <h1>New Album Release</h1>
+                    <h1>Top Songs</h1>
                     <h2>Listen Now</h2>
                 </div>
             </div>
 
             <div class="clearfix"></div>
 
-            <div class="row soundtheme-mod-playlist" style="margin-top:60px;">
-                
-                @if(Model.Albums.Count > 0)
-                {
-                <div class="col-md-4">
-                    <div class="soundtheme-single-gallery">
-                        <a href="http://pock.be/sound/sweat-dreams/">
-                            <img src="http://pock.be/sound/wp-content/uploads/2015/10/photo-1432563491239-ba8bb919518e-250x250.jpg" class="attachment-soundtheme-thumb-small size-soundtheme-thumb-small wp-post-image" alt="" srcset="http://pock.be/sound/wp-content/uploads/2015/10/photo-1432563491239-ba8bb919518e-250x250.jpg 250w, http://pock.be/sound/wp-content/uploads/2015/10/photo-1432563491239-ba8bb919518e-150x150.jpg 150w, http://pock.be/sound/wp-content/uploads/2015/10/photo-1432563491239-ba8bb919518e-450x450.jpg 450w" sizes="(max-width: 250px) 100vw, 250px" width="250" height="250">									<div class="soundtheme-hover-play"><i class="fa fa-hand-peace-o"></i></div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-md-4 soundtheme-mod-playreposive">
-                    <div class="soundtheme-mod-detail  soundtheme-mod-detail-dark ">
-                        <h1><a href="http://pock.be/sound/sweat-dreams/">@Model.Albums[0].AlbumName</a></h1>
-                    </div>
-
-                    <div class="soundtheme-single-track">
-                        <div class="soundtheme-single-tracklist">
-                            <ol class="fap-my-playlist">
-                                @foreach (var item in Model.Songs)
-                                {
-                                    <li>
-                                        <!-- SOUND THEME / TRACK -->
-                                        <a title="@item.SongName">
-                                            @item.SongName
-                                        </a>
-
-                                        <!-- SOUND THEME / DOWNLOAD -->
-                                        <div class="soundtheme-single-download">
-                                            <i class="fa fa-music"></i>
-                                        </div>
-                                    </li>
-
-                                }
-
-
-
-                            </ol>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-
-                </div>
-                }
-                
-
-                <div class="col-md-4">
-                    <div class="soundtheme-mod-detail  soundtheme-mod-detail-dark ">
-                        <h1>Other Albums</h1>
-                    </div>
-
-                    @if (Model.Albums.Count > 1)
-                    {
-                    <div class="soundtheme-mod-others">
-                        <ul>
-                            <li>
-                                <a href="">
-                                    <img src="http://pock.be/sound/wp-content/uploads/2015/10/13-250x250.jpg" class="attachment-soundtheme-thumb-small size-soundtheme-thumb-small wp-post-image" alt="" srcset="http://pock.be/sound/wp-content/uploads/2015/10/13-250x250.jpg 250w, http://pock.be/sound/wp-content/uploads/2015/10/13-150x150.jpg 150w, http://pock.be/sound/wp-content/uploads/2015/10/13-450x450.jpg 450w" sizes="(max-width: 250px) 100vw, 250px" width="250" height="250">
-                                </a>
-
-                                <div class="soundtheme-mod-detail  soundtheme-mod-detail-dark ">
-                                    <h1><a href="">@Model.Albums[1].AlbumName</a></h1>
-                                </div>
-                                <div class="clearfix"></div>
-                            </li>
-                        </ul>
-                    </div>
-                    }
-                    
-
-                    @if (Model.Albums.Count > 2)
-                    {
-                    <div class="soundtheme-mod-others">
-                        <ul>
-                            <li>
-                                <a href="">
-                                    <img src="http://pock.be/sound/wp-content/uploads/2015/10/13-250x250.jpg" class="attachment-soundtheme-thumb-small size-soundtheme-thumb-small wp-post-image" alt="" srcset="http://pock.be/sound/wp-content/uploads/2015/10/13-250x250.jpg 250w, http://pock.be/sound/wp-content/uploads/2015/10/13-150x150.jpg 150w, http://pock.be/sound/wp-content/uploads/2015/10/13-450x450.jpg 450w" sizes="(max-width: 250px) 100vw, 250px" width="250" height="250">
-                                </a>
-
-                                <div class="soundtheme-mod-detail  soundtheme-mod-detail-dark ">
-                                    <h1><a href="">@Model.Albums[2].AlbumName</a></h1>
-                                </div>
-                                <div class="clearfix"></div>
-                            </li>
-                        </ul>
-                    </div>
-                    }
-                    
-
-                    @if (Model.Albums.Count > 3)
-                    {
-                        <div class="soundtheme-mod-others">
-                            <ul>
+            <div class="row soundtheme-mod-playlist col-md-4 col-md-offset-4 " style="margin-top:60px;">
+                <div class="soundtheme-single-track">
+                    <div class="soundtheme-single-tracklist">
+                        <ol class="fap-my-playlist" style=" margin-bottom: 60px;">
+                            @foreach (var item in Model.Songs)
+                            {
                                 <li>
-                                    <a href="">
-                                        <img src="http://pock.be/sound/wp-content/uploads/2015/10/13-250x250.jpg" class="attachment-soundtheme-thumb-small size-soundtheme-thumb-small wp-post-image" alt="" srcset="http://pock.be/sound/wp-content/uploads/2015/10/13-250x250.jpg 250w, http://pock.be/sound/wp-content/uploads/2015/10/13-150x150.jpg 150w, http://pock.be/sound/wp-content/uploads/2015/10/13-450x450.jpg 450w" sizes="(max-width: 250px) 100vw, 250px" width="250" height="250">
+                                    <!-- SOUND THEME / TRACK -->
+                                    <a title="@item.SongName">
+                                        @item.SongName
                                     </a>
 
-                                    <div class="soundtheme-mod-detail  soundtheme-mod-detail-dark ">
-                                        <h1><a href="">@Model.Albums[3].AlbumName</a></h1>
+                                    <!-- SOUND THEME / DOWNLOAD -->
+                                    <div class="soundtheme-single-download">
+                                        <i class="fa fa-music"></i>
                                     </div>
-                                    <div class="clearfix"></div>
                                 </li>
-                            </ul>
-                        </div>
-                    }
-                </div>
 
-                <div class="clearfix"></div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-4 soundtheme-mod-playreposive">
-                </div>
-                <div class="col-md-4">
-                    <div class="soundtheme-mod-bigbutton soundtheme-mod-playbtn">
-                        <a href="http://www.pock.site/sound/music-page-four-grid/" class="btn btn-block btn-lg  btn-success ">View All Albums</a>
+                            }
+                        </ol>
+                        <div class="clearfix"></div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                </div>
-
-                <div class="clearfix"></div>
             </div>
-        </div>
     </div>
 
     <!-- SOUND THEME / TOP ARTIST -->
@@ -547,14 +295,13 @@
     </div>
     <div class="clearfix"></div>
 </div>
-
+    </div>
 @section scripts{
     <script>
         var list = document.getElementById("listanbp");
         var pr = document.getElementById("prevnbp");
         pr.onclick = function () {
             for (var i = 0; i < list.children.length; i++) {
-                console.log("aaa");
                 if (list.children[i].className == "current") {
                     if (list.children[i - 1] != null) {
                         list.children[i].className = "";
@@ -564,6 +311,7 @@
                 }
             }
         }
+
         var nx = document.getElementById("nextnbp");
         nx.onclick = function () {
             for (var i = 0; i < list.children.length; i++) {
@@ -576,7 +324,5 @@
                 }
             }
         }
-
     </script>
-
 }
