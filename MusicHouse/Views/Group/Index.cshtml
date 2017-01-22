@@ -133,19 +133,28 @@
                     <div class="soundtheme-widget">                        
                         <aside id="archives-2" class="widget widget_archive">
                             <div class="soundtheme-widgettitle"><h1 class="widget-title">Genres</h1></div>		
-                                <ul>
-                                    @{
-                                        foreach (var item in Model.Genres)
+                            <ul>
+                                
+                                    @Ajax.ActionLink("All", "Index", new { name = " " }, new AjaxOptions()
+                                                                       {
+                                                                           HttpMethod = "GET",
+                                                                           InsertionMode = InsertionMode.Replace,
+                                                                           UpdateTargetId = "groupModel",
+                                                                       }, new { @class = "list-group-item" })
+                                
+                                @{
+                                    foreach (var item in Model.Genres)
+                                    {
+                                        @Ajax.ActionLink(item.Data.Name, "Index", new {name = item.Data.Name}, new AjaxOptions()
                                         {
-                                            @Ajax.ActionLink(item.Data.Name, "Index", new {name = item.Data.Name}, new AjaxOptions()
-                                            {
-                                                HttpMethod = "GET",
-                                                InsertionMode = InsertionMode.Replace,
-                                                UpdateTargetId = "groupModel",
-                                            }, new { @class = "list-group-item"});
-                                        }
+                                            HttpMethod = "GET",
+                                            InsertionMode = InsertionMode.Replace,
+                                            UpdateTargetId = "groupModel",
+                                        }, new {@class = "list-group-item"})
+                                        ;
                                     }
-                                </ul>
+                                }
+                            </ul>
                         </aside>
                     </div>
                 </div>

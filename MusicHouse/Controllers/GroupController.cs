@@ -20,7 +20,7 @@ namespace MusicHouse.Controllers
             try
             {
                 IEnumerable<Node<Group>> groups = new List<Node<Group>>();
-                if (name != null && name != "")
+                if (name != null && name != " ")
                 {
                    groups = WebApiConfig.GraphClient.Cypher
                     .Match("(a:Group), (b:Genre)")
