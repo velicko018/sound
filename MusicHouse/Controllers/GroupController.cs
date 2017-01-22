@@ -218,7 +218,7 @@ namespace MusicHouse.Controllers
                 var albumToAdd = form.Get("Albums");
                 var genreToAdd = form.Get("Genres");
 
-                if (artistToAdd != String.Empty)
+                if (artistToAdd != String.Empty && artistToAdd!=null)
                 {
                     WebApiConfig.GraphClient.Cypher
                        .Match("(s:Group)", "(g:Artist)")
@@ -227,7 +227,7 @@ namespace MusicHouse.Controllers
                        .Create("(g)-[r:MEMBER]->(s)")
                        .ExecuteWithoutResults();
                 }
-                if (awardToAdd != String.Empty)
+                if (awardToAdd != String.Empty && awardToAdd != null)
                 {
                     WebApiConfig.GraphClient.Cypher
                        .Match("(s:Group)", "(g:Award)")
@@ -236,7 +236,7 @@ namespace MusicHouse.Controllers
                        .Create("(s)-[r:HAS_AWARD]->(g)")
                        .ExecuteWithoutResults();
                 }
-                if (albumToAdd != String.Empty)
+                if (albumToAdd != String.Empty && albumToAdd != null)
                 {
                     WebApiConfig.GraphClient.Cypher
                        .Match("(s:Group)", "(g:Album)")
@@ -245,7 +245,7 @@ namespace MusicHouse.Controllers
                        .Create("(s)-[r:HAVE_ALBUM]->(g)")
                        .ExecuteWithoutResults();
                 }
-                if (genreToAdd != String.Empty)
+                if (genreToAdd != String.Empty && genreToAdd != null)
                 {
                     WebApiConfig.GraphClient.Cypher
                        .Match("(s:Group)", "(g:Genre)")

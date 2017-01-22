@@ -128,7 +128,7 @@
             <div class="form-group">
                 <label class="control-label col-md-2">Add Song</label>
                 <div class="col-md-10">
-                    @Html.DropDownList("Songs", Songitems, new { @class = "form-control" })
+                    @Html.DropDownList("Songs", Songitems,"", new { @class = "form-control" })
                 </div>
             </div>
         }
@@ -137,7 +137,7 @@
             <div class="form-group">
                 <label class="control-label col-md-2">Add Genre</label>
                 <div class="col-md-10">
-                    @Html.DropDownList("Genres", GenreItems, new { @class = "form-control" })
+                    @Html.DropDownList("Genres", GenreItems, "", new { @class = "form-control" })
                 </div>
             </div>
         }
@@ -146,7 +146,7 @@
             <div class="form-group">
                 <label class="control-label col-md-2">Add Award</label>
                 <div class="col-md-10">
-                    @Html.DropDownList("Awards", AwardItems, new { @class = "form-control" })
+                    @Html.DropDownList("Awards", AwardItems, "", new { @class = "form-control" })
                 </div>
             </div>
         }

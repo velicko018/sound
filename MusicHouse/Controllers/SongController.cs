@@ -144,7 +144,7 @@ namespace MusicHouse.Controllers
                    .Set("s = {params}")
                    .WithParam("params", song)
                    .ExecuteWithoutResults();
-                if (genreToAdd != String.Empty)
+                if (genreToAdd != String.Empty && genreToAdd!=null)
                 {
                     WebApiConfig.GraphClient.Cypher
                        .Match("(s:Song)", "(g:Genre)")
@@ -153,7 +153,7 @@ namespace MusicHouse.Controllers
                        .Create("(s)-[r:HAS_GENRE]->(g)")
                        .ExecuteWithoutResults();
                 }
-                if (awardToAdd!=String.Empty)
+                if (awardToAdd!=String.Empty && awardToAdd != null)
                 {
                     WebApiConfig.GraphClient.Cypher
                        .Match("(s:Song)", "(g:Award)")
